@@ -13,17 +13,13 @@
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 1 column for time, 7 for days */
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
     gap: 5px;
 }
 
-.day-label, .time-slot-label, .time-slot {
+.day-label, .time-slot {
     text-align: center;
     font-size: 0.9em;
-    padding: 5px;
-}
-
-.time-slot {
-    height: 40px;
+    padding: 10px;
     border: 1px solid #ddd;
-}
+}  
