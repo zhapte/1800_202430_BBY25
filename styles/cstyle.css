@@ -1,6 +1,6 @@
 .calendar-container {
     padding: 10px;
-    max-width: 100%;
+    width:auto;
 }
 
 .calendar-header {
@@ -13,13 +13,13 @@
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
-    gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto auto; /* 7 columns for days of the week */
+    gap: 1px;
 }
 
 .day-label, .time-slot {
     text-align: center;
     font-size: 0.9em;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ddd;
 }  
