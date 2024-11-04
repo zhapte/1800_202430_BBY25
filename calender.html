@@ -19,7 +19,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/cstyle.css">
-    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="./scripts/script.js"></script>
 </head>
 
 <body>
@@ -98,17 +99,10 @@
                 calendarGrid.innerHTML += '<div class="time-slot"></div>';
             }
 
-            // Add day slots for each day in the month with clickable buttons
+            // Add day slots for each day in the month
             for (let day = 1; day <= daysInMonth; day++) {
-                calendarGrid.innerHTML += `
-                    <div class="time-slot">
-                        <button onclick="dateClicked(${day})">${day}</button>
-                    </div>`;
+                calendarGrid.innerHTML += `<div class="time-slot">${day}</div>`;
             }
-        }
-
-        function dateClicked(day) {
-            alert(`You clicked on ${day} ${monthNames[currentMonth]} ${currentYear}`);
         }
 
         function prevMonth() {
