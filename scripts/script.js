@@ -1,8 +1,3 @@
-function sayHello() {
-    
-}
-sayHello();
-
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 let currentMonth = 9; // October
@@ -60,3 +55,4 @@ function nextMonth() {
 
 // Initialize calendar on page load
 document.addEventListener("DOMContentLoaded", updateCalendar);
+
