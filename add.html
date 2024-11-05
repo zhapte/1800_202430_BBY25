@@ -55,24 +55,21 @@
       <form>
         <div class="form-group">
           <label for="exampleFormControlInput1">Title Of the Event</label>
-          <input class="form-control" id="exampleFormControlInput1">
+          <input class="form-control" id="eventtitle">
         </div>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Group Size</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6+</option>
-          </select>
+          <input class="form-control" id="eventsize" type="number">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Event goal(dollar amount)</label>
+          <input class="form-control" id="eventgoal" type="number">
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Description of the Event</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" id="eventdes" rows="3"></textarea>
         </div>
-        <button onclick="hello()" type="button">Click Me!</button>
+        <button onclick="hello()" type="button">submit</button>
         <input type="reset" value="Rest"></input>
       </form>
        
