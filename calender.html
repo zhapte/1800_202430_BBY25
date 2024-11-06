@@ -104,6 +104,10 @@
                 calendarGrid.innerHTML += `<div class="time-slot">${day}</div>`;
             }
         }
+        function dateClicked(day) {
+            alert(`You clicked on ${day} ${monthNames[currentMonth]} ${currentYear}`);
+        }
+
 
         function prevMonth() {
             currentMonth--;
