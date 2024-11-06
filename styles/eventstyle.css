@@ -1,0 +1,56 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin-bottom: 60px; /* Space for the fixed footer */
+}
+
+/* Title Box styling */
+.title-box {
+    width: 100%;
+    max-width: 1000px; /* Increased width */
+    margin: 0 auto;
+    font-size: 28px; /* Increased font size */
+    font-weight: bold;
+    padding: 20px; /* Added padding */
+    border-radius: 8px;
+}
+
+/* Description Box styling */
+.description-box {
+    width: 100%;
+    max-width: 800px; /* Increased width */
+    margin: 0 auto;
+    font-size: 20px; /* Increased font size */
+    padding: 25px; /* Increased padding */
+    background-color: #d9eaff;
+    border: 1px solid #c0c0c0;
+    border-radius: 8px;
+}
+
+/* Button styling */
+.btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #d9eaff;
+    border: 1px solid #c0c0c0;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background-color: #bcd9f5;
+}
+
+/* Footer Icon styling */
+footer .container a {
+    color: white;
+    font-size: 24px;
+    transition: color 0.2s;
+}
+
+footer .container a:hover {
+    color: #ffde59;
+}
