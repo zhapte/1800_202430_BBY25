@@ -12,6 +12,7 @@ function hello(){
                 name: document.getElementById('eventtitle').value ,
                 groupSize: document.getElementById('eventsize').value,
                 eventdes: document.getElementById('eventdes').value,
+                date: document.getElementById('eventdate').value,
                 last_updated: firebase.firestore.FieldValue.serverTimestamp()
             }).then(function () {
                 console.log("event added to database");

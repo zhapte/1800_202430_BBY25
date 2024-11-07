@@ -20,6 +20,7 @@ function loadEvents() {
     }).catch((error) => {
         console.error("Error fetching events: ", error);
     });
+
 }
 
 // Load events on page load
