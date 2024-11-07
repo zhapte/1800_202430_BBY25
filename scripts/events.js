@@ -1,3 +1,17 @@
+function checkevent(){
+    db.collection("customevents").get().then((check) => {
+        check.forEach((doc) => {
+            const eventc = doc.data();
+            if (eventc.isover == null){
+                
+            }
+        });
+    });
+
+}
+
+checkevent();
+
 // Function to load events from Firestore
 function loadEvents() {
     const eventTableBody = document.getElementById("eventTableBody");
@@ -6,7 +20,7 @@ function loadEvents() {
     db.collection("customevents").get().then((populate) => {
         populate.forEach((doc) => {
             const event = doc.data();
-
+            
             // Create a new row
             const row = document.createElement("tr");
             row.innerHTML = `
@@ -25,3 +39,5 @@ function loadEvents() {
 
 // Load events on page load
 window.onload = loadEvents;
+
+
