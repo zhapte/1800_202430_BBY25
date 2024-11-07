@@ -1,6 +1,8 @@
 
+var currentUser;     
 function hello(){
     var eventRef = db.collection("customevents");
+
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             eventRef.add({
@@ -13,11 +15,15 @@ function hello(){
                 last_updated: firebase.firestore.FieldValue.serverTimestamp()
             }).then(function () {
                 console.log("event added to database");
+
                 window.location.assign("main.html");       //re-direct to main.html after event added
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
         }
     })
+}
 
+function test(){
+    var currentUser; 
 }
