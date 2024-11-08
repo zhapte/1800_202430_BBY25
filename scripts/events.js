@@ -1,3 +1,4 @@
+// Function to load events from Firestore
 function loadEvents() {
     const eventTableBody = document.getElementById("eventTableBody");
     eventTableBody.innerHTML = ""; // Clear existing rows
@@ -6,7 +7,7 @@ function loadEvents() {
         populate.forEach((doc) => {
             const event = doc.data();
 
-            // Create a new row and add the 'clickable-row' class for hover effect
+            // Create a new row
             const row = document.createElement("tr");
             row.classList.add("clickable-row");
 
@@ -32,3 +33,5 @@ function loadEvents() {
 
 // Load events on page load
 window.onload = loadEvents;
+
+
