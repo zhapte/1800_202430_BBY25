@@ -1,6 +1,6 @@
 
 function displayeventinfo(){
-    let event = db.collection("customevents").doc("U02uDbdS6buMtNXGEWp6");
+    let event = db.collection("customevents").doc("68oySrB5qAuTCFRSTPWx");
     event.get().then(eventdoc => {
         let title = eventdoc.data().name;
         let owner = eventdoc.data().eventOwner;
@@ -25,7 +25,7 @@ function displayeventinfo(){
 displayeventinfo();
 
 function join(){
-    var eventRef = db.collection("customevents").doc("U02uDbdS6buMtNXGEWp6");
+    var eventRef = db.collection("customevents").doc("68oySrB5qAuTCFRSTPWx");
     eventRef.get().then(event => {
         let part = event.data().participant;
         if(part == null){
