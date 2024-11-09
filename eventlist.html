@@ -105,7 +105,12 @@
     <script src="./scripts/addevent.js"></script>
     <script src="./scripts/events.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
-
+     <script>
+    function getEventIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("eventId");
+}
+     </script>
 
 </body>
 
