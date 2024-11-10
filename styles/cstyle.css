@@ -22,4 +22,16 @@
     font-size: 0.9em;
     padding: 5px;
     border: 1px solid #ddd;
-}  
+}
+
+.time-slot button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: none;
+    cursor: pointer;
+}
+
+.time-slot button:hover {
+    background-color: #e2e6ea;
+}

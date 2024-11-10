@@ -1,13 +1,51 @@
-.searchbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-.searchbar input [type="text"] {
-    padding: 6px;
-    border: 1px solid black;
-    font-size: 20px;
-    width: 900px;
-    max-width: 100%;
+h1 {
+    color: #2c3e50;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 10px 20 px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 4px 8px rgba (0, 0, 0, 2);
+}
+
+.search-bar button:active {
+    background-color: #004080;
+    transform: scale(0.95); /* would shrink the button slightly when pressed */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
 }
