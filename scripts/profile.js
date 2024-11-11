@@ -1,5 +1,6 @@
 var currentUser;               //points to the document of the user who is logged in
 function populateUserInfo() {
+    
             firebase.auth().onAuthStateChanged(user => {
                 // Check if user is signed in:
                 if (user) {
@@ -18,15 +19,23 @@ function populateUserInfo() {
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
+                                document.getElementById("nameoutput").innerText = userName;
                             }
                             if (userSchool != null) {
                                 document.getElementById("schoolInput").value = userSchool;
+                                document.getElementById("schooloutput").innerText = userSchool;
                             }
                             if (userCity != null) {
                                 document.getElementById("cityInput").value = userCity;
+                                document.getElementById("cityoutput").innerText = userCity;
                             }
                             if (moneyAmount != null) {
                                 document.getElementById("moneyInput").value = moneyAmount;
+                                document.getElementById("moneyoutput").innerText = moneyAmount;
+                            }
+                            var x = document.getElementsByClassName("infoinput");
+                            for (var i = 0; i < x.length; i++) {
+                                x[i].classList.add("hidden");
                             }
                         })
                 } else {
@@ -39,6 +48,15 @@ function populateUserInfo() {
 function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
+    var x = document.getElementsByClassName("infoinput");
+    for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("hidden");
+    }
+
+    var y = document.getElementsByClassName("outputinfo");
+    for (var i = 0; i < y.length; i++) {
+        y[i].classList.add("hidden");
+    }
 }
 //call the function to run it 
 populateUserInfo();
@@ -58,4 +76,12 @@ function saveUserInfo() {
         console.log("Document successfully updated!");
     })
     document.getElementById('personalInfoFields').disabled = true;
+    var x = document.getElementsByClassName("infoinput");
+    for (var i = 0; i < x.length; i++) {
+        x[i].classList.add("hidden");
+    }
+    var y = document.getElementsByClassName("outputinfo");
+    for (var i = 0; i < y.length; i++) {
+        y[i].classList.remove("hidden");
+    }
 }

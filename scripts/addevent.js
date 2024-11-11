@@ -1,6 +1,6 @@
 
-var currentUser;     
-function hello(){
+   
+function addnewevent(){
     var eventRef = db.collection("customevents");
 
     firebase.auth().onAuthStateChanged(user => {
