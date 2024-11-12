@@ -12,8 +12,7 @@ function displayeventinfo() {
         console.error("No document ID found in URL");
         return;
     }
-    console.log(docId);
-    console.log(database);
+
     const eventRef = db.collection(database).doc(docId);
     eventRef.get().then(eventdoc => {
         if (eventdoc.exists) {

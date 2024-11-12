@@ -1,4 +1,4 @@
-document.getElementById("calculateButton").addEventListener("click", calculateTotal);
+
 
 function calculateTotal() {
     const bottleCountInput = document.getElementById("bottleCount").value;
