@@ -3,10 +3,12 @@ function loadEvents() {
     eventTableBody.innerHTML = ""; // Clear existing rows
 
 
-    db.collection("customevents").get().then((snapshot) => {
+    db.collection("cityevents").get().then((snapshot) => {
         snapshot.forEach((doc) => {
+
             const event = doc.data();
-           
+
+
             // Create a new row
             const row = document.createElement("tr");
 
@@ -25,7 +27,7 @@ function loadEvents() {
 
 
             row.addEventListener("click", () => {
-                window.location.href = `events.html?docId=${doc.id}&database=customevents`;
+                window.location.href = `events.html?docId=${doc.id}&database=cityevents`;
             });
 
             eventTableBody.appendChild(row);
