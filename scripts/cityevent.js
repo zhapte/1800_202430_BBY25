@@ -27,7 +27,7 @@ function loadEvents() {
 
 
             row.addEventListener("click", () => {
-                window.location.href = `events.html?docId=${doc.id}`;
+                window.location.href = `events.html?docId=${doc.id}&database=cityevents`;
             });
 
             eventTableBody.appendChild(row);

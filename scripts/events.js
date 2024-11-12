@@ -2,20 +2,10 @@ function loadEvents() {
     const eventTableBody = document.getElementById("eventTableBody");
     eventTableBody.innerHTML = ""; // Clear existing rows
 
-    // Mapping event names to specific document IDs
-    const eventIds = {
-        "test future 1": "68oySrB5qAuTCFRSTPWx",
-        "test future 2": "ixPlpDRL5QyWV2mRthxD",
-        "future event 3": "KEpmtt4xH1fRd6kdOmPl",
-        "test past": "tL1xGPrWkfD81bYWTd7g"
-    };
 
     db.collection("customevents").get().then((snapshot) => {
         snapshot.forEach((doc) => {
             const event = doc.data();
-
-
-            // If no ID is found, skip this event
            
             // Create a new row
             const row = document.createElement("tr");
@@ -35,7 +25,7 @@ function loadEvents() {
 
 
             row.addEventListener("click", () => {
-                window.location.href = `events.html?docId=${doc.id}`;
+                window.location.href = `events.html?docId=${doc.id}&database=customevents`;
             });
 
             eventTableBody.appendChild(row);

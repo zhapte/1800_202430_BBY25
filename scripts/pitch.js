@@ -1,18 +1,20 @@
 function getDocIdFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get("docId");
+    const database = urlParams.get("database");
+    const docId = urlParams.get("docId");
+    return { docId, database};
 }
 
 // Display event information based on docId
 function displayeventinfo() {
-    const docId = getDocIdFromURL();
+    const {docId, database} = getDocIdFromURL();
     if (!docId) {
         console.error("No document ID found in URL");
         return;
     }
-
-
-    const eventRef = db.collection("customevents").doc(docId);
+    console.log(docId);
+    console.log(database);
+    const eventRef = db.collection(database).doc(docId);
     eventRef.get().then(eventdoc => {
         if (eventdoc.exists) {
             const data = eventdoc.data();
@@ -47,14 +49,14 @@ displayeventinfo();
 
 
 function join() {
-    const docId = getDocIdFromURL();
+    const { docId, database } = getDocIdFromURL();
     if (!docId) {
         console.error("No document ID found in URL");
         return;
     }
 
     // Reference the event document in Firestore
-    const eventRef = db.collection("customevents").doc(docId);
+    const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
         if (eventDoc.exists) {
             const participants = eventDoc.data().participant || []; 
