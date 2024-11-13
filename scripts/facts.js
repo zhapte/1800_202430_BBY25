@@ -21,3 +21,27 @@ function calculateTotal() {
 function addtoprofile(){
     console.log("test");
 }
+
+function loadItems() {
+    const itemList = document.getElementById("itemList"); 
+    itemList.innerHTML = ""; 
+    db.collection("Facts").get().then((facts) => {
+        facts.forEach((doc) => {
+            const item = doc.data();
+            
+            const listItem = document.createElement("li");
+            listItem.classList.add("item");
+            listItem.innerHTML = `
+                <img src="${item.pic}" alt="${item.alt}" class="rimg" />
+                <div class="text-container">
+                    <div class="head">${item.name}</div>
+                    <div class="sub">${item.tip}</div>
+                </div>
+            `;
+
+            // Append to the UL element
+            itemList.appendChild(listItem);
+        });
+    })
+}
+loadItems()
