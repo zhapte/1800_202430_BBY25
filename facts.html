@@ -10,13 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Library CSS CDN go here -->
+    <link rel="stylesheet" href="styles/factstyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Boostrap Library JS CDN  go here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/locatorstyle.css">
     <link rel="stylesheet" href="./styles/style.css">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
@@ -24,12 +25,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="./scripts/firebaseAPI_TEAM25.js"></script>
     <script src="./scriptication.js/authents"></script>
-    <link rel="stylesheet" href="factstyle.css">
+    
     </head>
 
     <body>
@@ -56,6 +58,151 @@
           
           <p class="result" id="result"></p>
           <button id="submit" class="hidden" onclick="addtoprofile()">Add to Profile</button>
+          <h3>Items you can return!</h3>
+          <ul>
+                <li class="item">
+                    <img src="images/Can_300.jpg" alt="aluminum cans" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Aluminum Can</div>
+                        <div class="sub">Leave tabs on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/plasticb.jpg" alt="plastic bottle" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Plastic Bottle</div>
+                        <div class="sub">Leave cap on</div>
+                    </div>
+                </li>
+                <li class="item">
+                <img src="images/plasticcup.jpg" alt="plastic cup" class="rimg" />
+                <div class="text-container">
+                    <div class="head">Plastic Cup</div>
+                    <div class="sub">Polypropylene cup with lid</div>
+                </div>
+                </li>
+                <li class="item">
+                    <img src="images/drinkbox.jpg" alt="drink box" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Drink Box</div>
+                        <div class="sub">Caps on, push the straws in</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/gabletop.jpg" alt="gabletop" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Gable Top</div>
+                        <div class="sub">Caps On</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/glass.jpg" alt="Glass" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Glass Bottle</div>
+                        <div class="sub">Caps on, labels on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/metalcan.jpg" alt="metal can" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Bi-Metal Can</div>
+                        <div class="sub">Leave labels on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/drinkpouch.jpg" alt="drinkpouch" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Drink Pouch</div>
+                        <div class="sub">Push straws in</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/baginabottle.png" alt="baginabox" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Bag-in-a-Box</div>
+                        <div class="sub">Water - Leave bag in box</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/alumilk.jpg" alt="milkmetal" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Milk and Plant-based Aluminum</div>
+                        <div class="sub">Leave tabs on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/milkplastc.png" alt="milkplastic" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Milk and Plant-based Plastic</div>
+                        <div class="sub">Caps on, labels on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/milkgable.png" alt="milkgable" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Milk and Plant-based Gable Top</div>
+                        <div class="sub">Caps on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/milkdrinkbox.png" alt="milkdrinkbox" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Milk and Plant-based Drink Box</div>
+                        <div class="sub">Caps on, Push the straws in</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/milkglass.png" alt="milkglass" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Milk and Plant-based Glass</div>
+                        <div class="sub">Caps on, labels on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/milkmetal.jpg" alt="milkmetal" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Milk and Plant-based Bi-Metal</div>
+                        <div class="sub">Leave labels on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/milkcup.jpg" alt="milkcup" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Milk and Plant-based Cup</div>
+                        <div class="sub">Polystyrene cup with foil lid.</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/liquorplastic.jpg" alt="liquorplastic" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Liquor Plastic</div>
+                        <div class="sub">Caps on, labels on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/liquorglass.jpg" alt="liquorglass" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Liquor Glass</div>
+                        <div class="sub">Caps on, labels on</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/alchoholglass.jpg" alt="alchohoglass" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Alchohol Bag-in-a-Box</div>
+                        <div class="sub">Alcohol - Leave Bag in Box</div>
+                    </div>
+                </li>
+                <li class="item">
+                    <img src="images/ceramic.png" alt="beer" class="rimg" />
+                    <div class="text-container">
+                        <div class="head">Ceramic Bottle</div>
+                        <div class="sub">Do not crush or break them</div>
+                    </div>
+                </li>
+
+                
+        </ul>
 
     <script src="scripts/facts.js"></script>
 

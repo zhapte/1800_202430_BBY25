@@ -19,13 +19,5 @@ function calculateTotal() {
 }
 
 function addtoprofile(){
-    const eventRef = db.collection("customevents").doc("68oySrB5qAuTCFRSTPWx");
-    eventRef.get().then(eventDoc => {
-        if (eventDoc.exists) {
-            const date = eventDoc.data().date
-            console.log(date);
-            
-            console.log(new Date());
-        } 
-    });
+    console.log("test");
 }
