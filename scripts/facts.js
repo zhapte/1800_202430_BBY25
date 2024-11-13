@@ -1,4 +1,4 @@
-
+var total;
 
 function calculateTotal() {
     const bottleCountInput = document.getElementById("bottleCount").value;
@@ -10,10 +10,22 @@ function calculateTotal() {
         document.getElementById("result").innerText = "Please enter a valid number of bottles.";
         return;
     }
-
+    
     const pricePerBottle = 0.10; // 10 cents per bottle
-    const total = bottleCount * pricePerBottle;
-
+    total = bottleCount * pricePerBottle;
+    document.getElementById("submit").classList.remove("hidden");
     // Display result with 2 decimal places
     document.getElementById("result").innerText = `Total: $${total.toFixed(2)}`;
+}
+
+function addtoprofile(){
+    const eventRef = db.collection("customevents").doc("68oySrB5qAuTCFRSTPWx");
+    eventRef.get().then(eventDoc => {
+        if (eventDoc.exists) {
+            const date = eventDoc.data().date
+            console.log(date);
+            
+            console.log(new Date());
+        } 
+    });
 }
