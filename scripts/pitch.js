@@ -95,3 +95,26 @@ function checksize() {
     const {docId, database} = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
 }
+function checkisparticipate(){
+    const { docId, database } = getDocIdFromURL();
+    const eventRef = db.collection(database).doc(docId.trim());
+    eventRef.get().then(eventDoc => {
+        if (eventDoc.exists) {
+            const participants = eventDoc.data().participant || []; 
+
+            // Check if the user is authenticated
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    
+                    if (participants.includes(user.uid)) {
+                        document.getElementById("joinbutton").disabled = true;
+                        document.getElementById("joinbutton").innerHTML = "Already Joined";
+                    } 
+                } else {
+                    console.log("No user is logged in");
+                }
+            });
+        }
+    })
+}
+checkisparticipate();
