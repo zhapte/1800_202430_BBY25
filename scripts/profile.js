@@ -84,4 +84,5 @@ function saveUserInfo() {
     for (var i = 0; i < y.length; i++) {
         y[i].classList.remove("hidden");
     }
+    populateUserInfo();
 }

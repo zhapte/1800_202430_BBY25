@@ -2,7 +2,7 @@
    
 function addnewevent(){
     var eventRef = db.collection("customevents");
-
+    //code sourced from Carly's demo
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             eventRef.add({

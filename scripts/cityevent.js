@@ -2,14 +2,10 @@ function loadEvents() {
     const eventTableBody = document.getElementById("eventTableBody");
     eventTableBody.innerHTML = ""; // Clear existing rows
 
-
+    // code sourced from a combination of Carly's demo and Aaron's example
     db.collection("cityevents").get().then((snapshot) => {
         snapshot.forEach((doc) => {
-
             const event = doc.data();
-
-
-            // Create a new row
             const row = document.createElement("tr");
 
             row.classList.add("clickable-row");
