@@ -16,7 +16,6 @@ function addnewevent(){
                 last_updated: firebase.firestore.FieldValue.serverTimestamp()
             }).then(function () {
                 console.log("event added to database");
-
                 window.location.assign("main.html");       //re-direct to main.html after event added
             })
         } else {

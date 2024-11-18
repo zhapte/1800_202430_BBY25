@@ -20,7 +20,6 @@ function calculateTotal() {
 }
 
 function addtoprofile(){
-
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
@@ -31,22 +30,26 @@ function addtoprofile(){
             currentUser.get()
                 .then(userDoc => {
                     let moneyAmount = userDoc.data().money;
-                    console.log(moneyAmount);
-                    var totala = parseFloat(moneyAmount) + parseFloat(total);
+                    let totala = parseFloat(moneyAmount) + parseFloat(total)
+                    totala = totala.toFixed(2);
+                    console.log(totala);
                     currentUser.update({
-                        money: totala.toFixed(2)
+                        money: totala
+                    }).then(function () {
+                        console.log("Money added to profile");
+                        window.location.assign("profile.html");      
                     })
-                }).then(function () {
-                    console.log("Money added to profile");
-                    window.location.assign("facts.html");       //re-direct to main.html after event added
                 })
         } else {
             // No user is signed in.
             console.log("No user is signed in");
         }
     });
-       
 }
+
+
+
+
 
 function loadItems() {
     const itemList = document.getElementById("itemList"); 
