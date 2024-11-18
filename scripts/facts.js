@@ -1,12 +1,11 @@
 var total;
-var bottlecount;
 
 function calculateTotal() {
     // code wrote by Pari
     const bottleCountInput = document.getElementById("bottleCount").value;
 
     // Ensure the input is a valid number
-    bottleCount = parseInt(bottleCountInput, 10);
+    const bottleCount = parseInt(bottleCountInput, 10);
     
     if (isNaN(bottleCount) || bottleCount < 0) {
         document.getElementById("result").innerText = "Please enter a valid number of bottles.";
@@ -21,7 +20,32 @@ function calculateTotal() {
 }
 
 function addtoprofile(){
-    
+
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    let moneyAmount = userDoc.data().money;
+                    console.log(moneyAmount);
+                    var totala = parseFloat(moneyAmount) + parseFloat(total);
+                    currentUser.update({
+                        money: totala.toFixed(2)
+                    })
+                }).then(function () {
+                    console.log("Money added to profile");
+                    window.location.assign("facts.html");       //re-direct to main.html after event added
+                })
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+        }
+    });
+       
 }
 
 function loadItems() {

@@ -90,3 +90,8 @@ function join() {
         console.error("Error fetching event for joining:", error);
     });
 }
+ 
+function checksize() {
+    const {docId, database} = getDocIdFromURL();
+    const eventRef = db.collection(database).doc(docId.trim());
+}
