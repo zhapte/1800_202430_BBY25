@@ -50,46 +50,48 @@
           </svg>
         </form>
     </div>
-</nav>>
+</nav>
 
-
-  <form>
+  <form id="eventInput">
     <div class="form-group">
       <label for="exampleFormControlInput1">Title Of the Event</label>
-      <input class="form-control" id="eventtitle">
+      <input class="form-control" id="eventtitle" required>
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Group Size</label>
-      <input class="form-control" id="eventsize" type="number">
+      <input class="form-control" id="eventsize" type="number" required>
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Event goal(dollar amount)</label>
-      <input class="form-control" id="eventgoal" type="number">
+      <input class="form-control" id="eventgoal" type="number" required>
     </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Description of the Event</label>
-      <textarea class="form-control" id="eventdes" rows="3"></textarea>
+      <textarea class="form-control" id="eventdes" rows="3" required></textarea>
     </div>
     <div>
       <label for="exampleFormControlTextarea1">Date of the Event</label>
-      <input class="form-control" id="eventdate" type="date">
+      <input class="form-control" id="eventdate" type="date" required>
     </div>
-    <button onclick="addnewevent()" type="button">submit</button>
-    <input type="reset" value="Rest"></input>
+    <br>
+    <span style="width: 15px; display:inline-block"></span>
+    <button onclick="addnewevent()" class="btn btn-primary" id="submitButton" type="button" disabled>submit</button>
+    <span style="width: 15px; display:inline-block"></span>
+    <input type="reset" value="Rest" class="btn btn-danger"></input>
   </form>
 
 
 
-  <footer class="navbar bg-info fixed-bottom">
-    <div class="container">
-      <a href="stats.html"><span class="material-icons">paid</span></a>
-      <a href="goal.html"><span class="material-icons">signal_cellular_alt</span></a>
-      <a href="main.html"><span class="material-icons">home</span></a>
-      <a href="calender.html"><span class="material-icons">event</span></a>
-      <a href="friends.html"><span class="material-icons">group</span></a>
-    </div>
+    <!-- Footer -->
+    <footer class="navbar bg-info fixed-bottom">
+      <div class="container">
+          <a href="profile.html"><span class="material-icons">paid</span></a>
+          <a href="add.html"><span class="material-icons">signal_cellular_alt</span></a>
+          <a href="main.html"><span class="material-icons">home</span></a>
+          <a href="calender.html"><span class="material-icons">event</span></a>
+          <a href="events.html"><span class="material-icons">group</span></a>
+      </div>
   </footer>
-
   <!---------------------------------------------->
   <!-- Your own JavaScript functions go here    -->
   <!---------------------------------------------->
