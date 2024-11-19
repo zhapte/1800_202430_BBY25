@@ -1,3 +1,18 @@
+// firebaseAPI_TEAM25.js
+const firebaseConfig = {
+    apiKey: "AIzaSyBF_dSkOi2ZkHU1NUjgQ7Ba89VSIlMKJl0",
+    authDomain: "bby25-ed23e.firebaseapp.com",
+    projectId: "bby25-ed23e",
+    storageBucket: "bby25-ed23e.firebasestorage.app",
+    messagingSenderId: "675789470983",
+    appId: "1:675789470983:web:64ec71f1f240db006199a2"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  
+
 let map, service, infoWindow;
 
 function initMap() {
@@ -16,7 +31,7 @@ function findNearbyRecyclingDepots() {
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-            (position) => {=
+            (position) => { 
                 const userLocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
@@ -82,8 +97,8 @@ exports.getNearbyRecyclingDepots = functions.https.onRequest(async (req, res) =>
 // locator.js
 
 async function findNearbyRecyclingDepots() {
-    const searchQuery = document.getElementById('locationInput').value.trim().toLowerCase();
-    const resultDiv = document.getElementById('result');
+    const searchQuery = document.getElementById("locationInput").value.trim().toLowerCase();
+    const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = ""; // Clear previous results
   
     if (!searchQuery) {
@@ -103,20 +118,25 @@ async function findNearbyRecyclingDepots() {
       let results = [];
       snapshot.forEach((doc) => {
         const data = doc.data();
-        if (data.location.toLowerCase().includes(searchQuery)) {
+        // Match against the `city`, `location`, or `name` fields
+        if (
+          data.city.toLowerCase().includes(searchQuery) ||
+          data.location.toLowerCase().includes(searchQuery) ||
+          data.name.toLowerCase().includes(searchQuery)
+        ) {
           results.push(data);
         }
       });
   
       if (results.length > 0) {
         results.forEach((depot) => {
-          const depotDiv = document.createElement('div');
+          const depotDiv = document.createElement("div");
           depotDiv.className = "depot";
           depotDiv.innerHTML = `
             <h3>${depot.name}</h3>
+            <p><strong>City:</strong> ${depot.city}</p>
             <p><strong>Location:</strong> ${depot.location}</p>
-            <p><strong>Description:</strong> ${depot.description || "No description available."}</p>
-            <p><strong>City</strong> ${depot.city}</p>
+            <p><strong>Description:</strong> ${depot.description}</p>
           `;
           resultDiv.appendChild(depotDiv);
         });
