@@ -19,6 +19,7 @@ function loadEvents() {
                 <td>${event.groupSize}</td>
                 <td>${event.goal}</td>
                 <td>${event.eventdes}</td>
+                <td>$${event.contribution}</td>
             `;
 
 
