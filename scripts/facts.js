@@ -1,6 +1,7 @@
 var total;
 
 function calculateTotal() {
+    // code wrote by Pari
     const bottleCountInput = document.getElementById("bottleCount").value;
 
     // Ensure the input is a valid number
@@ -19,8 +20,36 @@ function calculateTotal() {
 }
 
 function addtoprofile(){
-    console.log("test");
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    let moneyAmount = userDoc.data().money;
+                    let totala = parseFloat(moneyAmount) + parseFloat(total)
+                    totala = totala.toFixed(2);
+                    console.log(totala);
+                    currentUser.update({
+                        money: totala
+                    }).then(function () {
+                        console.log("Money added to profile");
+                        window.location.assign("profile.html");      
+                    })
+                })
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+        }
+    });
 }
+
+
+
+
 
 function loadItems() {
     const itemList = document.getElementById("itemList"); 
@@ -38,8 +67,6 @@ function loadItems() {
                     <div class="sub">${item.tip}</div>
                 </div>
             `;
-
-            // Append to the UL element
             itemList.appendChild(listItem);
         });
     })

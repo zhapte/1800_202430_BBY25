@@ -3,6 +3,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
     callbacks: {
+      // code sourced from Carly's Demo
       signInSuccessWithAuthResult: function (authResult, redirectUrl) {
         // User successfully signed in.
         // Return type determines whether we continue the redirect automatically
@@ -21,10 +22,10 @@ var uiConfig = {
                    name: user.displayName,                    //"users" collection
                    email: user.email,                         //with authenticated user's ID (user.uid)
                    country: "Canada",                      //optional default profile info      
-                   school: "ITBC"                          //optional default profile info
+                   school: "BCIT"                          //optional default profile info
             }).then(function () {
                    console.log("New user added to firestore");
-                   window.location.assign("profile.html");       //re-direct to main.html after signup
+                   window.location.assign("fprofile.html");       //re-direct to main.html after signup
             }).catch(function (error) {
                    console.log("Error adding new user: " + error);
             });

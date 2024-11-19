@@ -50,31 +50,30 @@
           </svg>
         </form>
     </div>
-</nav>>
+</nav>
 
-
-  <form>
+  <form id="eventInput">
     <div class="form-group">
       <label for="exampleFormControlInput1">Title Of the Event</label>
-      <input class="form-control" id="eventtitle">
+      <input class="form-control" id="eventtitle" required>
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Group Size</label>
-      <input class="form-control" id="eventsize" type="number">
+      <input class="form-control" id="eventsize" type="number" required>
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Event goal(dollar amount)</label>
-      <input class="form-control" id="eventgoal" type="number">
+      <input class="form-control" id="eventgoal" type="number" required>
     </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Description of the Event</label>
-      <textarea class="form-control" id="eventdes" rows="3"></textarea>
+      <textarea class="form-control" id="eventdes" rows="3" required></textarea>
     </div>
     <div>
       <label for="exampleFormControlTextarea1">Date of the Event</label>
-      <input class="form-control" id="eventdate" type="date">
+      <input class="form-control" id="eventdate" type="date" required>
     </div>
-    <button onclick="addnewevent()" type="button">submit</button>
+    <button onclick="addnewevent()" id="submitButton" type="button" disabled>submit</button>
     <input type="reset" value="Rest"></input>
   </form>
 
