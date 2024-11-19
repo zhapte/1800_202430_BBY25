@@ -26,7 +26,7 @@ function initMap() {
 }
 
 function findNearbyRecyclingDepots() {
-    const locationInput = document.getElementById("locationInput").value;
+    const locationInput = document.getElementById("").value;
     const keyword = locationInput || "recycling center";
 
     if (navigator.geolocation) {
