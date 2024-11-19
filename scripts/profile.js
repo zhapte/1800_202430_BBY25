@@ -86,3 +86,7 @@ function saveUserInfo() {
     }
     populateUserInfo();
 }
+
+function gonext(){
+    window.location.assign("main.html");
+}
