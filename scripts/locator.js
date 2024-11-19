@@ -65,7 +65,7 @@ function findNearbyRecyclingDepots() {
 function displayResults(results) {
     let resultHTML = "<h2>Nearby Recycling Depots:</h2><ul>";
     results.forEach((place) => {
-        resultHTML += `<li>${place.name} - ${place.vicinity}</li>`;
+        resultHTML += `<li>${recyclingDepots.name} - ${recyclingDepots.location} - ${recyclingDepots.description}</li>`;
     });
     resultHTML += "</ul>";
     document.getElementById("result").innerHTML = resultHTML;
@@ -134,9 +134,9 @@ async function findNearbyRecyclingDepots() {
           depotDiv.className = "depot";
           depotDiv.innerHTML = `
             <h3>${depot.name}</h3>
-            <p><strong>City:</strong> ${depot.city}</p>
-            <p><strong>Location:</strong> ${depot.location}</p>
-            <p><strong>Description:</strong> ${depot.description}</p>
+            <p><strong>City:</strong> ${recyclingDepots.city}</p>
+            <p><strong>Location:</strong> ${recyclingDepotsdepot.location}</p>
+            <p><strong>Description:</strong> ${recyclingDepot.description}</p>
           `;
           resultDiv.appendChild(depotDiv);
         });
