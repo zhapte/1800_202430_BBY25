@@ -1,3 +1,20 @@
+// Firebase Configuration and Initialization
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBF_dSkOi2ZkHU1NUjgQ7Ba89VSIlMKJl0",
+    authDomain: "bby25-ed23e.firebaseapp.com",
+    projectId: "bby25-ed23e",
+    storageBucket: "bby25-ed23e.firebasestorage.app",
+    messagingSenderId: "675789470983",
+    appId: "1:675789470983:web:64ec71f1f240db006199a2D",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Google Maps Variables
 let map, service, infoWindow;
 
 function initMap() {
@@ -10,13 +27,11 @@ function initMap() {
 
 function findNearbyRecyclingDepots() {
     const locationInput = document.getElementById("locationInput").value;
-
-    // If the user hasn't entered anything, use "recycling center" as default
-    const keyword = locationInput || 'recycling center';
+    const keyword = locationInput || "recycling center";
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-            (position) => {=
+            (position) => {
                 const userLocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
@@ -25,14 +40,29 @@ function findNearbyRecyclingDepots() {
 
                 const request = {
                     location: userLocation,
-                    radius: '5000', // radius in meters
+                    radius: '5000',
                     keyword: keyword,
                 };
 
                 service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, (results, status) => {
+                service.nearbySearch(request, async (results, status) => {
                     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
                         displayResults(results);
+
+                        try {
+                            await addDoc(collection(db, "searchResults"), {
+                                userLocation,
+                                keyword,
+                                results: results.map((place) => ({
+                                    name: place.name,
+                                    vicinity: place.vicinity,
+                                })),
+                                timestamp: new Date(),
+                            });
+                            console.log("Search results saved to Firestore.");
+                        } catch (error) {
+                            console.error("Error saving results: ", error);
+                        }
                     } else {
                         document.getElementById("result").innerText = "No recycling depots found nearby.";
                     }
@@ -55,26 +85,3 @@ function displayResults(results) {
     resultHTML += "</ul>";
     document.getElementById("result").innerHTML = resultHTML;
 }
-
-const functions = require("firebase-functions");
-const axios = require("axios");
-
-// Set up Google Maps API key as environment variable
-const googleMapsApiKey = functions.config().googlemaps.key;
-
-exports.getNearbyRecyclingDepots = functions.https.onRequest(async (req, res) => {
-    try {
-        const { lat, lng, keyword = "recycling center" } = req.query;
-        const response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json`, {
-            params: {
-                location: `${lat},${lng}`,
-                radius: 5000,
-                keyword,
-                key: googleMapsApiKey
-            }
-        });
-        res.json(response.data);
-    } catch (error) {
-        res.status(500).send("Error fetching data from Google Maps API");
-    }
-});
