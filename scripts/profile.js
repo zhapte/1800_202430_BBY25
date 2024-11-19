@@ -15,6 +15,7 @@ function populateUserInfo() {
                             let userSchool = userDoc.data().school;
                             let userCity = userDoc.data().city;
                             let moneyAmount = userDoc.data().money;
+                            let bottles = userDoc.data().bottles;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
@@ -32,6 +33,9 @@ function populateUserInfo() {
                             if (moneyAmount != null) {
                                 document.getElementById("moneyInput").value = moneyAmount;
                                 document.getElementById("moneyoutput").innerText = moneyAmount;
+                            }
+                            if(bottles != null){
+                                document.getElementById("bottlereturned").innerText = bottles + " bottles returned";
                             }
                             var x = document.getElementsByClassName("infoinput");
                             for (var i = 0; i < x.length; i++) {

@@ -1,11 +1,11 @@
 var total;
-
+var bottleCount
 function calculateTotal() {
     // code wrote by Pari
     const bottleCountInput = document.getElementById("bottleCount").value;
 
     // Ensure the input is a valid number
-    const bottleCount = parseInt(bottleCountInput, 10);
+    bottleCount = parseInt(bottleCountInput, 10);
     
     if (isNaN(bottleCount) || bottleCount < 0) {
         document.getElementById("result").innerText = "Please enter a valid number of bottles.";
@@ -30,11 +30,14 @@ function addtoprofile(){
             currentUser.get()
                 .then(userDoc => {
                     let moneyAmount = userDoc.data().money;
+                    let bottles = userDoc.data().bottles;
                     let totala = parseFloat(moneyAmount) + parseFloat(total)
                     totala = totala.toFixed(2);
+                    bottles += bottleCount;
                     console.log(totala);
                     currentUser.update({
-                        money: totala
+                        money: totala,
+                        bottles: bottles
                     }).then(function () {
                         console.log("Money added to profile");
                         window.location.assign("profile.html");      
