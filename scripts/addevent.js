@@ -24,6 +24,19 @@ function addnewevent(){
     })
 }
 
-function test(){
-    var currentUser; 
+// Get references to the form, inputs, and submit button
+const form = document.getElementById('eventInput');
+const inputs = Array.from(form.querySelectorAll('input[required]'));
+const submitButton = document.getElementById('submitButton');
+
+function checkFormValidity() {
+    // Check if all inputs are valid
+    const allValid = inputs.every(input => input.value.trim() !== '' && input.checkValidity());
+    // Enable or disable the submit button
+    submitButton.disabled = !allValid;
 }
+
+
+inputs.forEach(input => {
+    input.addEventListener('input', checkFormValidity);
+});
