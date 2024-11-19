@@ -27,7 +27,7 @@ function initMap() {
 
 function findNearbyRecyclingDepots() {
     const locationInput = document.getElementById("").value;
-    const keyword = locationInput || "recycling center";
+    const keyword = locationInput || "depot";
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -54,8 +54,8 @@ function findNearbyRecyclingDepots() {
                                 userLocation,
                                 keyword,
                                 results: results.map((place) => ({
-                                    name: place.name,
-                                    vicinity: place.vicinity,
+                                    name: recyclingDepots.city,
+                                    description: recyclingDepots.description,
                                 })),
                                 timestamp: new Date(),
                             });
@@ -80,7 +80,7 @@ function findNearbyRecyclingDepots() {
 function displayResults(results) {
     let resultHTML = "<h2>Nearby Recycling Depots:</h2><ul>";
     results.forEach((place) => {
-        resultHTML += `<li>${place.name} - ${place.vicinity}</li>`;
+        resultHTML += `<li>${recylcingDepots.name} - ${recyclingDepots.location} - ${recyclingDepots.description} - ${recyclingDepots.city}</li>`;
     });
     resultHTML += "</ul>";
     document.getElementById("result").innerHTML = resultHTML;
