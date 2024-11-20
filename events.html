@@ -10,10 +10,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/eventstyle.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -22,34 +22,35 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="./scripts/firebaseAPI_TEAM25.js"></script>
     <script src="./scripts/authentication.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
+   
 </head>
 
 <body>
- <!-- Header -->
- <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container-fluid">
-        <!-- Back Button -->
-        <a href="#" class="navbar-icon" onclick="history.go(-1)">
-            <span class="material-icons">arrow_back</span>
-        </a>
-        <!-- Brand Name -->
-        <a class="navbar-brand" href="#">Ecogether</a>
-        <!-- Profile Icon -->
-        <form class="d-flex" role="Profile">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
-                viewBox="0 0 16 16">
-                <path
-                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-            </svg>
-        </form>
-    </div>
-  </nav>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <!-- Back Button -->
+            <a href="javascript:void(0);" class="navbar-icon" onclick="goBack()">
+                <span class="material-icons">arrow_back</span>
+            </a>
+            <!-- Brand Name -->
+            <a class="navbar-brand" href="#">Ecogether</a>
+            <!-- Profile Icon -->
+            <form class="d-flex" role="Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                </svg>
+            </form>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <div class="container my-5 text-center">
@@ -68,41 +69,41 @@
         <button id="joinbutton" class="btn btn-info mt-3" onclick="join()">JOIN</button>
     </div>
 
-<!-- Footer -->
-<footer class="navbar fixed-bottom" style="background-color: #4c4caf;">
-    <div class="container text-center">
-        <div class="footer-item">
-            <a href="cityeventlist.html">
-                <span class="material-icons">list</span>
-                <div class="footer-text">City Events</div>
-            </a>
+    <!-- Footer -->
+    <footer class="navbar fixed-bottom" style="background-color: #4c4caf;">
+        <div class="container text-center">
+            <div class="footer-item">
+                <a href="cityeventlist.html">
+                    <span class="material-icons">list</span>
+                    <div class="footer-text">City Events</div>
+                </a>
+            </div>
+            <div class="footer-item">
+                <a href="eventlist.html">
+                    <span class="material-icons">playlist_add</span>
+                    <div class="footer-text">Personal Events</div>
+                </a>
+            </div>
+            <div class="footer-item">
+                <a href="main.html">
+                    <span class="material-icons">home</span>
+                    <div class="footer-text">Home</div>
+                </a>
+            </div>
+            <div class="footer-item">
+                <a href="facts.html">
+                    <span class="material-icons">fact_check</span>
+                    <div class="footer-text">Facts</div>
+                </a>
+            </div>
+            <div class="footer-item">
+                <a href="locator.html">
+                    <span class="material-icons">location_on</span>
+                    <div class="footer-text">Locator</div>
+                </a>
+            </div>
         </div>
-        <div class="footer-item">
-            <a href="eventlist.html">
-                <span class="material-icons">playlist_add</span>
-                <div class="footer-text">Personal Events</div>
-            </a>
-        </div>
-        <div class="footer-item">
-            <a href="main.html">
-                <span class="material-icons">home</span>
-                <div class="footer-text">Home</div>
-            </a>
-        </div>
-        <div class="footer-item">
-            <a href="facts.html">
-                <span class="material-icons">fact_check</span>
-                <div class="footer-text">Facts</div>
-            </a>
-        </div>
-        <div class="footer-item">
-            <a href="locator.html">
-                <span class="material-icons">location_on</span>
-                <div class="footer-text">Locator</div>
-            </a>
-        </div>
-    </div>
-  </footer>
+    </footer>
 
 
     <!-- Bootstrap JS Bundle -->
@@ -111,7 +112,8 @@
     <script src="./scripts/pitch.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
