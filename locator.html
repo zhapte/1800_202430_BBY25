@@ -32,28 +32,7 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <script src="./scripts/firebaseAPI_TEAM25.js"></script>
-
-
-
-    <!-- Link to styles of your own -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/locatorstyle.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="./scripts/firebaseAPI_TEAM25.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/locations.js"></script>
-    
-
-
-
+  <script src="./scripts/locations.js"></script> 
 </head>
 
 <body>
@@ -71,6 +50,16 @@
     </div>
   </nav>
   <h1>Search for Nearby Recycling Depots:</h1>
+
+
+  <div class="search-bar">
+    <input type="text" id="locationInput" placeholder="Find your Nearby Recycle Depot">
+    <button onClick="findNearbyRecyclingDepots()">Search</button>
+  </div>
+
+
+  <ul id="itemList"></ul>
+
 
 
 
@@ -110,19 +99,6 @@
   </div>
 </footer>
 
-
-  <div class="search-bar">
-    <input type="text" id="locationInput" placeholder="Find your Nearby Recycle Depot">
-    <button onClick="findNearbyRecyclingDepots()">Search</button>
-  </div>
-
-  <div id="map"></div>
-  <div id="result"></div>
-
-  <script src="locator.js"></script>
-  <script src="index.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_dSkOi2ZkHU1NUjgQ7Ba89VSIlMKJl0&libraries=place&callback=initMap"></script>
 
 </body>
 

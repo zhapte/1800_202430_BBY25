@@ -1,87 +1,23 @@
-// Firebase Configuration and Initialization
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+function displayCards() {
+    const container = document.getElementById("cardContainer"); // Your container for cards
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBF_dSkOi2ZkHU1NUjgQ7Ba89VSIlMKJl0",
-    authDomain: "bby25-ed23e.firebaseapp.com",
-    projectId: "bby25-ed23e",
-    storageBucket: "bby25-ed23e.firebasestorage.app",
-    messagingSenderId: "675789470983",
-    appId: "1:675789470983:web:64ec71f1f240db006199a2D",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Google Maps Variables
-let map, service, infoWindow;
-
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 12,
-    });
-    infoWindow = new google.maps.InfoWindow();
+    db.collection("recyclingDepots").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            const item = doc.data();
+            
+            const listItem = document.createElement("li");
+            listItem.classList.add("item");
+            listItem.innerHTML = `
+                <img src="${item.image}" alt="${item.alt}" class="rimg" />
+                <div class="text-container">
+                    <div class="name"><b>Name: </b>${item.name}</div>
+                    <div class="location"><b>Location: </b>${item.location}</div>
+                    <div class="city"><b>City: </b>${item.city}</div>
+                    <div class="description"><b>Description: </b>${item.description}</div>
+                </div>
+            `;
+            itemList.appendChild(listItem);
+        });
+    })
 }
-
-function findNearbyRecyclingDepots() {
-    const locationInput = document.getElementById("").value;
-    const keyword = locationInput || "depot";
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const userLocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
-                map.setCenter(userLocation);
-
-                const request = {
-                    location: userLocation,
-                    radius: '5000',
-                    keyword: keyword,
-                };
-
-                service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, async (results, status) => {
-                    if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-                        displayResults(results);
-
-                        try {
-                            await addDoc(collection(db, "searchResults"), {
-                                userLocation,
-                                keyword,
-                                results: results.map((place) => ({
-                                    name: recyclingDepots.city,
-                                    description: recyclingDepots.description,
-                                })),
-                                timestamp: new Date(),
-                            });
-                            console.log("Search results saved to Firestore.");
-                        } catch (error) {
-                            console.error("Error saving results: ", error);
-                        }
-                    } else {
-                        document.getElementById("result").innerText = "No recycling depots found nearby.";
-                    }
-                });
-            },
-            () => {
-                document.getElementById("result").innerText = "Geolocation not supported or access denied.";
-            }
-        );
-    } else {
-        document.getElementById("result").innerText = "Geolocation is not supported by this browser.";
-    }
-}
-
-function displayResults(results) {
-    let resultHTML = "<h2>Nearby Recycling Depots:</h2><ul>";
-    results.forEach((place) => {
-        resultHTML += `<li>${recylcingDepots.name} - ${recyclingDepots.location} - ${recyclingDepots.description} - ${recyclingDepots.city}</li>`;
-    });
-    resultHTML += "</ul>";
-    document.getElementById("result").innerHTML = resultHTML;
-}
+displayCards();
