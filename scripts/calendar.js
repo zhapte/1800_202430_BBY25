@@ -59,3 +59,14 @@ function nextMonth() {
 
 // Initialize calendar on page load
 document.addEventListener("DOMContentLoaded", updateCalendar);
+
+// function goBack() {
+//     // Check if there's a previous page in the browser history
+//     if (window.history.length > 1) {
+//         window.history.back(); // Go back to the previous page
+//     // } else {
+//     //     // Fallback: Redirect to a default page (e.g., Event List)
+//     //     window.location.href = "eventlist.html";
+//     // }
+// }
+// }
