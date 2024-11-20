@@ -4,7 +4,7 @@ function displayCards() {
     db.collection("recyclingDepots").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             const item = doc.data();
-            
+
             const listItem = document.createElement("li");
             listItem.classList.add("item");
             listItem.innerHTML = `

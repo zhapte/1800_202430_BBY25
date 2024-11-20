@@ -23,7 +23,8 @@ var uiConfig = {
                    email: user.email,                         //with authenticated user's ID (user.uid)
                    country: "Canada",                      //optional default profile info      
                    school: "BCIT",
-                   bottles: 0   
+                   bottles: 0,
+                   money: 0 
                                           //optional default profile info
             }).then(function () {
                    console.log("New user added to firestore");

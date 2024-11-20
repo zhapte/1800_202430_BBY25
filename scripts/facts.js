@@ -3,10 +3,8 @@ var bottleCount
 function calculateTotal() {
     // code wrote by Pari
     const bottleCountInput = document.getElementById("bottleCount").value;
-
     // Ensure the input is a valid number
     bottleCount = parseInt(bottleCountInput, 10);
-    
     if (isNaN(bottleCount) || bottleCount < 0) {
         document.getElementById("result").innerText = "Please enter a valid number of bottles.";
         return;
@@ -49,10 +47,6 @@ function addtoprofile(){
     });
 }
 
-
-
-
-
 function loadItems() {
     const itemList = document.getElementById("itemList"); 
     itemList.innerHTML = ""; 
@@ -73,5 +67,5 @@ function loadItems() {
         });
     })
 }
-loadItems()
+loadItems();
 
