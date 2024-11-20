@@ -34,7 +34,6 @@ function addtoprofile(){
                     let totala = parseFloat(moneyAmount) + parseFloat(total)
                     totala = totala.toFixed(2);
                     bottles += bottleCount;
-                    console.log(totala);
                     currentUser.update({
                         money: totala,
                         bottles: bottles

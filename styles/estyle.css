@@ -8,3 +8,7 @@ tr:hover td{
     display:block;
     width:40%;
   }
+  
+#eventlist{
+    margin-bottom:75px;
+}
