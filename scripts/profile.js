@@ -92,5 +92,6 @@ function saveUserInfo() {
 }
 
 function gonext(){
+    saveUserInfo();
     window.location.assign("main.html");
 }
