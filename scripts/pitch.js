@@ -67,10 +67,7 @@ function join() {
                 if (user) {
                     
                     if (!participants.includes(user.uid)) {
-                        participants.push(user.uid); // Add user to the participant list
-                        
-
-                        // Update participant list in Firestore
+                        participants.push(user.uid);
                         eventRef.update({
                             participant: participants
                         }).then(() => {
