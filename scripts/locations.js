@@ -1,4 +1,5 @@
-function displayCards() {
+
++function displayCards() {
     const container = document.getElementById("cardContainer"); // Your container for cards
 
     db.collection("recyclingDepots").get().then((querySnapshot) => {
