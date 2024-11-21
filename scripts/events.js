@@ -30,6 +30,13 @@ function loadEvents() {
                 });
 
                 eventTableBody.appendChild(row);
+            } else{
+                db.collection("customevents").doc(doc.id).delete()
+                .then(() => {
+                    console.log(`Deleted hike: ${doc.id}`);
+                    //refresh the page after deletion
+                    location.reload();
+                })
             }
         });
     }).catch((error) => {

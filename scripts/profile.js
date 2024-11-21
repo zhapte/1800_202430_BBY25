@@ -92,6 +92,19 @@ function saveUserInfo() {
 }
 
 function gonext(){
-    saveUserInfo();
-    window.location.assign("main.html");
+    userName = document.getElementById('nameInput').value;       
+    userSchool = document.getElementById('schoolInput').value;     
+    userCity = document.getElementById('cityInput').value;      
+    userMoney = document.getElementById('moneyInput').value;
+    currentUser.update({
+        name: userName,
+        school: userSchool,
+        city: userCity,
+        money: userMoney
+    })
+    .then(() => {
+        console.log("Document successfully updated!");
+        window.location.assign("main.html");
+    })
+
 }
