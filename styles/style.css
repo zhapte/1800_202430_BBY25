@@ -1,15 +1,17 @@
 .topimg {
-    max-width: 30%;
-    min-width: 1%;
-    height: auto;
+    width: 100%;       /* Make images take up the full width of the parent container */
+    height: auto;      /* Maintain aspect ratio */
+    max-width: 300px;  /* Limit max width to a desired size */
+    min-width: 150px;  /* Set a minimum size */
     place-self: center;
     text-align: center;
 }
 
 .midimg {
-    max-width: 50%;
-    min-width: 1%;
-    height: auto;
+    width: 100%;       /* Make images take up the full width of the parent container */
+    height: auto;      /* Maintain aspect ratio */
+    max-width: 300px;  /* Limit max width to a desired size */
+    min-width: 150px;  /* Set a minimum size */
     place-self: center;
 }
 
@@ -30,7 +32,6 @@
     padding: 10px; /* Optional: Add padding for spacing */
     text-align: center; /* Center-align text */
 }
-
 
 .acard {
     padding-bottom: 60px;
@@ -85,6 +86,7 @@
 .footer-item a:hover .footer-text {
     color: rgb(50, 200, 50); 
 }
+
 .navbar-icon {
     color: white; /* Icon color */
     text-decoration: none; /* Remove underline */
@@ -99,9 +101,8 @@
     cursor: pointer; /* Pointer on hover */
 }
 
-
 @media (max-width: 768px) {
-    .topimg {
+    .topimg, .midimg {
         max-width: 100%; 
         height: auto;
     }
