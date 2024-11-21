@@ -32,7 +32,7 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <script src="./scripts/firebaseAPI_TEAM25.js"></script>
-  <script src="./scriptication.js/authents"></script>
+  <script src="./scripts/authentication.js"></script>
 
 </head>
 
@@ -41,9 +41,8 @@
  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
       <!-- Back Button -->
-      <a href="#" class="navbar-icon">
-          <span class="material-icons">arrow_back</span>
-      </a>
+          <span class="material-icons"></span>
+
       <!-- Brand Name -->
       <a class="navbar-brand" href="#">Ecogether</a>
       <!-- Profile Icon -->
@@ -51,8 +50,23 @@
         <a href="profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
           <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
         </svg></a>
+        </form>
   </div>
 </nav>
+
+
+
+<h1>Bottle Recycling Calculator</h1>
+<p>Enter the number of bottles you want to recycle:</p>
+<input type="number" id="bottleCount" min="0" placeholder="0">
+<button onclick="calculateTotal()">Calculate</button>
+
+
+<p class="result" id="result"></p>
+<button id="submit" class="hidden" onclick="addtoprofile()">Add to Profile</button>
+<h3>Items you can return!</h3>
+
+<ul id="itemList"></ul>
 
   <!-- Footer -->
   <footer class="navbar fixed-bottom" style="background-color: #4c4caf;">
@@ -90,18 +104,6 @@
     </div>
   </footer>
 
-
-  <h1>Bottle Recycling Calculator</h1>
-  <p>Enter the number of bottles you want to recycle:</p>
-  <input type="number" id="bottleCount" min="0" placeholder="0">
-  <button onclick="calculateTotal()">Calculate</button>
-
-
-  <p class="result" id="result"></p>
-  <button id="submit" class="hidden" onclick="addtoprofile()">Add to Profile</button>
-  <h3>Items you can return!</h3>
-
-  <ul id="itemList"></ul>
 
   <script src="scripts/facts.js"></script>
 
