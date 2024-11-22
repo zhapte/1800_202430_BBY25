@@ -32,18 +32,36 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <script src="./scripts/firebaseAPI_TEAM25.js"></script>
-  <script src="./scripts/locations.js"></script> 
+
+
+
+    <!-- Link to styles of your own -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/locatorstyle.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM25.js"></script>
+    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/locations.js"></script>
+    <script src="./scripts/locator.js"></script>
+    
+    
+
+
+
 </head>
 
 <body>
- <!-- Header -->
- <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-  <div class="container-fluid">
-      <!-- Back Button -->
-      <a href="#" class="navbar-icon">
-          <span class="material-icons">arrow_back</span>
-      </a>
-      <!-- Brand Name -->
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
       <a class="navbar-brand" href="#">Ecogether</a>
       <!-- Profile Icon -->
       <form class="d-flex" role="Profile" >
@@ -60,44 +78,43 @@
     <button>Search</button>
   </div>
 
-
   <ul id="itemList"></ul>
 
-  <!-- Footer -->
-  <footer class="navbar fixed-bottom" style="background-color: #4c4caf;">
-    <div class="container text-center">
+<!-- Footer -->
+<footer class="navbar fixed-bottom" style="background-color: #4c4caf;">
+  <div class="container text-center">
       <div class="footer-item">
-        <a href="cityeventlist.html">
-          <span class="material-icons">list</span>
-          <div class="footer-text">City Events</div>
-        </a>
+          <a href="cityeventlist.html">
+              <span class="material-icons">list</span>
+              <div class="footer-text">City Events</div>
+          </a>
       </div>
       <div class="footer-item">
           <a href="eventlist.html">
               <span class="material-icons">playlist_add</span>
-              <div class="footer-text">Personal Events</div>
+              <div class="footer-text">Add Event</div>
           </a>
       </div>
       <div class="footer-item">
-        <a href="main.html">
-          <span class="material-icons">home</span>
-          <div class="footer-text">Home</div>
-        </a>
+          <a href="main.html">
+              <span class="material-icons">home</span>
+              <div class="footer-text">Home</div>
+          </a>
       </div>
       <div class="footer-item">
-        <a href="facts.html">
-          <span class="material-icons">fact_check</span>
-          <div class="footer-text">Facts</div>
-        </a>
+          <a href="facts.html">
+              <span class="material-icons">fact_check</span>
+              <div class="footer-text">Facts</div>
+          </a>
       </div>
       <div class="footer-item">
-        <a href="locator.html">
-          <span class="material-icons">location_on</span>
-          <div class="footer-text">Locator</div>
-        </a>
+          <a href="locator.html">
+              <span class="material-icons">location_on</span>
+              <div class="footer-text">Locator</div>
+          </a>
       </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 
 </body>
