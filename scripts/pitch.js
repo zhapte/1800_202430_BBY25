@@ -113,6 +113,8 @@ function checkisparticipate(){
         // Check if the user is authenticated
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
+                console.log(user.uid);
+                console.log(participants.includes(user.uid));
                 if(user.uid == eventDoc.data().eventOwner){
                     document.getElementById("joinbutton").disabled = true;
                     document.getElementById("joinbutton").innerHTML = "You are the Owner";

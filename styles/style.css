@@ -101,6 +101,34 @@
     cursor: pointer; /* Pointer on hover */
 }
 
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Space between buttons and event name */
+}
+
+#eventDisplay {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 200px; /* Ensure the event name box is a consistent size */
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    background: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ddd;
+}
+
 @media (max-width: 768px) {
     .topimg, .midimg {
         max-width: 100%; 

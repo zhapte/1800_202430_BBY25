@@ -8,7 +8,6 @@ function loadEvents() {
             const edate = new Date(event.date);
             // Create a new row
             edate.setDate(edate.getDate() + 1);
-            console.log(edate);
             if (edate >= new Date()) {
                 // Create a new row
                 const row = document.createElement("tr");
