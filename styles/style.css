@@ -150,15 +150,6 @@ button:hover {
         gap: 1rem;
     }
 
-  .navbar {
-    background: linear-gradient(90deg, #1e3c72, #2a5298); /* Adjust colors here */
-    color: white;
-  }
-
-  .navbar-brand {
-    background-image: linear-gradient(blue, green);
-  }
-
   .logo {
    max-width: 100%;
    height:auto;
@@ -169,4 +160,38 @@ button:hover {
 .container{
     background: linear-gradient(to right, rgb(52, 232, 158), rgb(15, 52, 67));
 } 
+
+.first-color { 
+	background: #feffdf; 
 }
+	
+.second-color { 
+	background: #dde0ab; 
+}
+
+.third-color { 
+	background: #97cba9; 
+}
+
+.fourth-color { 
+	background: #668ba4; 
+}
+
+.p-5 mb-4 bg-light rounded-3 {
+    background-color:#97cba9 ;
+}
+
+.display-5 fw-bold {
+    background-color: aquamarine;
+}
+
+.container-fluid py-5 {
+    background-color: #97cba9;
+}
+}
+
+
+
+    
+    
+
