@@ -5,7 +5,7 @@ let currentYear = 2024;
 
 function updateCalendar() {
     document.getElementById("month-year").innerText = `${monthNames[currentMonth]} ${currentYear}`;
-    
+
     // Clear the current grid slots
     const calendarGrid = document.getElementById("calendar-grid");
     calendarGrid.innerHTML = `

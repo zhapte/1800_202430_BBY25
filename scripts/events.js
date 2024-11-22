@@ -29,13 +29,13 @@ function loadEvents() {
                 });
 
                 eventTableBody.appendChild(row);
-            } else{
+            } else {
                 db.collection("customevents").doc(doc.id).delete()
-                .then(() => {
-                    console.log(`Deleted hike: ${doc.id}`);
-                    //refresh the page after deletion
-                    location.reload();
-                })
+                    .then(() => {
+                        console.log(`Deleted hike: ${doc.id}`);
+                        //refresh the page after deletion
+                        location.reload();
+                    })
             }
         });
     }).catch((error) => {
@@ -48,9 +48,9 @@ function goBack() {
     // Check if there's a previous page in the browser history
     if (window.history.length > 1) {
         window.history.back(); // Go back to the previous page
-    // } else {
-    //     // Fallback: Redirect to a default page (e.g., Event List)
-    //     window.location.href = "eventlist.html";
-    // }
-}
+        // } else {
+        //     // Fallback: Redirect to a default page (e.g., Event List)
+        //     window.location.href = "eventlist.html";
+        // }
+    }
 }

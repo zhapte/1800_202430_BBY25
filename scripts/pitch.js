@@ -2,12 +2,12 @@ function getDocIdFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const database = urlParams.get("database");
     const docId = urlParams.get("docId");
-    return { docId, database};
+    return { docId, database };
 }
 
 // Display event information based on docId
 function displayeventinfo() {
-    const {docId, database} = getDocIdFromURL();
+    const { docId, database } = getDocIdFromURL();
     if (!docId) {
         console.error("No document ID found in URL");
         return;
@@ -22,7 +22,7 @@ function displayeventinfo() {
             const participants = data.participant || [];
             var currentpart = parseInt(participants.length) + 1;
             document.getElementById("eventtitle").innerText = data.name || "No Title";
-            document.getElementById("eventsize").innerText = "Group Size: " + currentpart + "/"+ (data.groupSize || "N/A");
+            document.getElementById("eventsize").innerText = "Group Size: " + currentpart + "/" + (data.groupSize || "N/A");
             document.getElementById("goalamount").innerText = "Total Goal: " + (data.goal || "N/A");
             document.getElementById("eventdetail").innerText = "The Event: " + (data.eventdes || "No Description");
 
@@ -60,7 +60,7 @@ function join() {
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
         if (eventDoc.exists) {
-            const participants = eventDoc.data().participant || []; 
+            const participants = eventDoc.data().participant || [];
 
             // Check if the user is authenticated
             firebase.auth().onAuthStateChanged(user => {
@@ -84,15 +84,15 @@ function join() {
                                             title: "Event Joined",
                                             text: "You Joined the Event",
                                             icon: "success"
-                                          }).then(function () {
-                                        window.location.assign("eventlist.html");
-                                          })
+                                        }).then(function () {
+                                            window.location.assign("eventlist.html");
+                                        })
                                     })
                                 });
                         }).catch(error => {
                             console.error("Error updating participants:", error);
                         });
-                    } 
+                    }
                 } else {
                     console.log("No user is logged in");
                 }
@@ -102,16 +102,16 @@ function join() {
         console.error("Error fetching event for joining:", error);
     });
 }
- 
+
 function checksize() {
-    const {docId, database} = getDocIdFromURL();
+    const { docId, database } = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
         const participants = eventDoc.data().participant || [];
         var currentpart = parseInt(participants.length);
         var size = parseInt(eventDoc.data().groupSize) - 1;
 
-        if(currentpart >= size){
+        if (currentpart >= size) {
             currentpart += 1;
             document.getElementById("joinbutton").disabled = true;
             document.getElementById("eventsize").innerText = "Group Size: " + currentpart + "/" + (eventDoc.data().groupSize || "N/A") + " Already Full.";
@@ -120,7 +120,7 @@ function checksize() {
 }
 checksize();
 
-function checkisparticipate(){
+function checkisparticipate() {
     const { docId, database } = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
@@ -129,7 +129,7 @@ function checkisparticipate(){
         // Check if the user is authenticated
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                if(user.uid == eventDoc.data().eventOwner){
+                if (user.uid == eventDoc.data().eventOwner) {
                     document.getElementById("joinbutton").disabled = true;
                     document.getElementById("joinbutton").innerHTML = "You are the Owner";
                 }

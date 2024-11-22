@@ -9,7 +9,7 @@ function calculateTotal() {
         document.getElementById("result").innerText = "Please enter a valid number of bottles.";
         return;
     }
-    
+
     const pricePerBottle = 0.10; // 10 cents per bottle
     total = bottleCount * pricePerBottle;
     document.getElementById("submit").classList.remove("hidden");
@@ -17,7 +17,7 @@ function calculateTotal() {
     document.getElementById("result").innerText = `Total: $${total.toFixed(2)}`;
 }
 
-function addtoprofile(){
+function addtoprofile() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
@@ -28,10 +28,10 @@ function addtoprofile(){
             currentUser.get()
                 .then(userDoc => {
                     let moneyAmount = userDoc.data().money;
-                    let bottles = userDoc.data().bottles;
+                    let bottles = parseInt(userDoc.data().bottles);
                     let totala = parseFloat(moneyAmount) + parseFloat(total)
                     totala = totala.toFixed(2);
-                    bottles += bottleCount;
+                    bottles += parseInt(bottleCount);
                     currentUser.update({
                         money: totala,
                         bottles: bottles
@@ -40,9 +40,9 @@ function addtoprofile(){
                             title: "Successfuly Added",
                             text: "The bottle and money have been added to your account.",
                             icon: "success"
-                          }).then(function () {
+                        }).then(function () {
                             window.location.assign("facts.html");
-                          })  
+                        })
                     })
                 })
         } else {
@@ -53,12 +53,12 @@ function addtoprofile(){
 }
 
 function loadItems() {
-    const itemList = document.getElementById("itemList"); 
-    itemList.innerHTML = ""; 
+    const itemList = document.getElementById("itemList");
+    itemList.innerHTML = "";
     db.collection("Facts").get().then((facts) => {
         facts.forEach((doc) => {
             const item = doc.data();
-            
+
             const listItem = document.createElement("li");
             listItem.classList.add("item");
             listItem.innerHTML = `

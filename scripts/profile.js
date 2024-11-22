@@ -1,53 +1,53 @@
 var currentUser;               //points to the document of the user who is logged in
 function populateUserInfo() {
-    
-            firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
-                if (user) {
 
-                    //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid)
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get the data fields of the user
-                            let userName = userDoc.data().name;
-                            let userSchool = userDoc.data().school;
-                            let userCity = userDoc.data().city;
-                            let moneyAmount = userDoc.data().money;
-                            let bottles = userDoc.data().bottles;
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
 
-                            //if the data fields are not empty, then write them in to the form.
-                            if (userName != null) {
-                                document.getElementById("nameInput").value = userName;
-                                document.getElementById("nameoutput").innerText = userName;
-                            }
-                            if (userSchool != null) {
-                                document.getElementById("schoolInput").value = userSchool;
-                                document.getElementById("schooloutput").innerText = userSchool;
-                            }
-                            if (userCity != null) {
-                                document.getElementById("cityInput").value = userCity;
-                                document.getElementById("cityoutput").innerText = userCity;
-                            }
-                            if (moneyAmount != null) {
-                                document.getElementById("moneyInput").value = moneyAmount;
-                                document.getElementById("moneyoutput").innerText = moneyAmount;
-                            }
-                            if(bottles != null){
-                                document.getElementById("bottlereturned").innerText = bottles + " bottles returned";
-                            }
-                            var x = document.getElementsByClassName("infoinput");
-                            for (var i = 0; i < x.length; i++) {
-                                x[i].classList.add("hidden");
-                            }
-                        })
-                } else {
-                    // No user is signed in.
-                    console.log ("No user is signed in");
-                }
-            });
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    //get the data fields of the user
+                    let userName = userDoc.data().name;
+                    let userSchool = userDoc.data().school;
+                    let userCity = userDoc.data().city;
+                    let moneyAmount = userDoc.data().money;
+                    let bottles = userDoc.data().bottles;
+
+                    //if the data fields are not empty, then write them in to the form.
+                    if (userName != null) {
+                        document.getElementById("nameInput").value = userName;
+                        document.getElementById("nameoutput").innerText = userName;
+                    }
+                    if (userSchool != null) {
+                        document.getElementById("schoolInput").value = userSchool;
+                        document.getElementById("schooloutput").innerText = userSchool;
+                    }
+                    if (userCity != null) {
+                        document.getElementById("cityInput").value = userCity;
+                        document.getElementById("cityoutput").innerText = userCity;
+                    }
+                    if (moneyAmount != null) {
+                        document.getElementById("moneyInput").value = moneyAmount;
+                        document.getElementById("moneyoutput").innerText = moneyAmount;
+                    }
+                    if (bottles != null) {
+                        document.getElementById("bottlereturned").innerText = bottles + " bottles returned";
+                    }
+                    var x = document.getElementsByClassName("infoinput");
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].classList.add("hidden");
+                    }
+                })
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
         }
+    });
+}
 
 function editUserInfo() {
     //Enable the form fields
@@ -66,9 +66,9 @@ function editUserInfo() {
 populateUserInfo();
 
 function saveUserInfo() {
-    userName = document.getElementById('nameInput').value;       
-    userSchool = document.getElementById('schoolInput').value;     
-    userCity = document.getElementById('cityInput').value;      
+    userName = document.getElementById('nameInput').value;
+    userSchool = document.getElementById('schoolInput').value;
+    userCity = document.getElementById('cityInput').value;
     userMoney = document.getElementById('moneyInput').value;
     currentUser.update({
         name: userName,
@@ -76,9 +76,9 @@ function saveUserInfo() {
         city: userCity,
         money: userMoney
     })
-    .then(() => {
-        console.log("Document successfully updated!");
-    })
+        .then(() => {
+            console.log("Document successfully updated!");
+        })
     document.getElementById('personalInfoFields').disabled = true;
     var x = document.getElementsByClassName("infoinput");
     for (var i = 0; i < x.length; i++) {
@@ -91,10 +91,10 @@ function saveUserInfo() {
     populateUserInfo();
 }
 
-function gonext(){
-    userName = document.getElementById('nameInput').value;       
-    userSchool = document.getElementById('schoolInput').value;     
-    userCity = document.getElementById('cityInput').value;      
+function gonext() {
+    userName = document.getElementById('nameInput').value;
+    userSchool = document.getElementById('schoolInput').value;
+    userCity = document.getElementById('cityInput').value;
     userMoney = document.getElementById('moneyInput').value;
     currentUser.update({
         name: userName,
@@ -102,9 +102,9 @@ function gonext(){
         city: userCity,
         money: userMoney
     })
-    .then(() => {
-        console.log("Document successfully updated!");
-        window.location.assign("main.html");
-    })
+        .then(() => {
+            console.log("Document successfully updated!");
+            window.location.assign("main.html");
+        })
 
 }

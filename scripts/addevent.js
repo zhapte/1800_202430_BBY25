@@ -31,9 +31,9 @@ function addnewevent() {
                                 title: "Event Created",
                                 text: "You Created Your event",
                                 icon: "success"
-                              }).then(function () {
-                            window.location.assign("eventlist.html");
-                              });
+                            }).then(function () {
+                                window.location.assign("eventlist.html");
+                            });
                         })
                     });
 
