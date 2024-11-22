@@ -1,4 +1,4 @@
-  function addnewevent(){
+function addnewevent() {
     var eventRef = db.collection("customevents");
     //code sourced from Carly's demo
     firebase.auth().onAuthStateChanged(user => {
@@ -10,7 +10,7 @@
             eventRef.add({
                 eventOwner: user.uid,
                 goal: document.getElementById('eventgoal').value,
-                name: document.getElementById('eventtitle').value ,
+                name: document.getElementById('eventtitle').value,
                 groupSize: document.getElementById('eventsize').value,
                 eventdes: document.getElementById('eventdes').value,
                 date: document.getElementById('eventdate').value,
@@ -21,17 +21,22 @@
                 currentUser = db.collection("users").doc(user.uid)
                 currentUser.get()
                     .then(userDoc => {
-                    let moneyAmount = userDoc.data().money;
-                    let totala = parseFloat(moneyAmount) - parseFloat(contribution);
-                    totala = totala.toFixed(2);
-                    currentUser.update({
-                        money: totala,
-                    }).then(function () {
-                        console.log("Money added to profile");
-                        window.location.assign("eventlist.html");       
-                    })
-                });
-            
+                        let moneyAmount = userDoc.data().money;
+                        let totala = parseFloat(moneyAmount) - parseFloat(contribution);
+                        totala = totala.toFixed(2);
+                        currentUser.update({
+                            money: totala,
+                        }).then(function () {
+                            Swal.fire({
+                                title: "Event Created",
+                                text: "You Created Your event",
+                                icon: "success"
+                              }).then(function () {
+                            window.location.assign("eventlist.html");
+                              });
+                        })
+                    });
+
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in

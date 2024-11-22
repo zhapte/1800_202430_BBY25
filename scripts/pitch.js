@@ -80,8 +80,13 @@ function join() {
                                     currentUser.update({
                                         money: totala,
                                     }).then(function () {
-                                        console.log("Money deducted to profile");
+                                        Swal.fire({
+                                            title: "Event Joined",
+                                            text: "You Joined the Event",
+                                            icon: "success"
+                                          }).then(function () {
                                         window.location.assign("eventlist.html");
+                                          })
                                     })
                                 });
                         }).catch(error => {

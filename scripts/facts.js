@@ -36,8 +36,13 @@ function addtoprofile(){
                         money: totala,
                         bottles: bottles
                     }).then(function () {
-                        console.log("Money added to profile");
-                        window.location.assign("facts.html");      
+                        Swal.fire({
+                            title: "Successfuly Added",
+                            text: "The bottle and money have been added to your account.",
+                            icon: "success"
+                          }).then(function () {
+                            window.location.assign("facts.html");
+                          })  
                     })
                 })
         } else {
