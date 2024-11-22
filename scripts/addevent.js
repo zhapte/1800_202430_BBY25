@@ -18,7 +18,20 @@
                 last_updated: firebase.firestore.FieldValue.serverTimestamp()
             }).then(function () {
                 console.log("event added to database");
-                window.location.assign("eventlist.html");       //re-direct to main.html after event added
+                currentUser = db.collection("users").doc(user.uid)
+                currentUser.get()
+                    .then(userDoc => {
+                    let moneyAmount = userDoc.data().money;
+                    let totala = parseFloat(moneyAmount) - parseFloat(contribution);
+                    totala = totala.toFixed(2);
+                    currentUser.update({
+                        money: totala,
+                    }).then(function () {
+                        console.log("Money added to profile");
+                        window.location.assign("eventlist.html");       
+                    })
+                });
+            
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
