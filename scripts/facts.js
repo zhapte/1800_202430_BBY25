@@ -37,7 +37,7 @@ function addtoprofile(){
                         bottles: bottles
                     }).then(function () {
                         console.log("Money added to profile");
-                        window.location.assign("profile.html");      
+                        window.location.assign("facts.html");      
                     })
                 })
         } else {

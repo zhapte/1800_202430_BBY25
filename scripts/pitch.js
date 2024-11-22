@@ -72,19 +72,15 @@ function join() {
                             participant: participants
                         }).then(() => {
                             console.log("User added to event participants");
-                            window.location.assign("main.html");
+                            window.location.assign("eventlist.html");
                         }).catch(error => {
                             console.error("Error updating participants:", error);
                         });
-                    } else {
-                        console.log("User is already a participant");
-                    }
+                    } 
                 } else {
                     console.log("No user is logged in");
                 }
             });
-        } else {
-            console.log("Event document does not exist");
         }
     }).catch(error => {
         console.error("Error fetching event for joining:", error);
@@ -117,6 +113,8 @@ function checkisparticipate(){
         // Check if the user is authenticated
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
+                console.log(user.uid);
+                console.log(participants.includes(user.uid));
                 if(user.uid == eventDoc.data().eventOwner){
                     document.getElementById("joinbutton").disabled = true;
                     document.getElementById("joinbutton").innerHTML = "You are the Owner";

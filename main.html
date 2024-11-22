@@ -2,62 +2,78 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 
-    <!-- Other libraries go here -->
+  <!-- Other libraries go here -->
 
-    <!-- Link to styles of your own -->
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <!-- Link to styles of your own -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script src="./scripts/firebaseAPI_TEAM25.js"></script>
+  <script src="./scripts/authentication.js"></script>
 
 </head>
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-    <!-- Header -->
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
+  <!-- Stuff for body goes here -->
+  <!-- Header -->
 
-    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-      <div class="container-fluid">
-          <!-- Back Button -->
-          <a href="#" class="navbar-icon">
-              <span class="material-icons"></span>
-          </a>
-          <!-- Brand Name -->
-          <a class="navbar-brand" href="#">Ecogether</a>
-          <!-- Profile Icon -->
-          <form class="d-flex" role="Profile" >
-            <a href="profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-            </svg></a>
-          </form>
-      </div>
-    </nav>
-
-    
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <!-- Back Button -->
+      <a href="#" class="navbar-icon">
+        <span class="material-icons"></span>
+      </a>
+      <!-- Brand Name -->
+      <a class="navbar-brand" href="#">Ecogether</a>
+      <!-- Profile Icon -->
+      <form class="d-flex" role="Profile">
+        <a href="profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-person" viewBox="0 0 16 16">
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+          </svg></a>
+      </form>
+    </div>
+  </nav>
+  <div id="container">
+    <button id="prevButton">Previous</button>
+    <div id="eventDisplay">Loading...</div>
+    <button id="nextButton">Next</button>
   </div>
-    <div class="acard">
+
+  </div>
+  <div class="acard">
     <div class="card mb-3">
       <img class="card-img-top topimg" src="images/comm_events.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title centertext">Community Events</h5>
-        <p class="card-text centertext">Find out what current event is happening in the local community and pitch in to join a fun and exciting local events.</p>
+        <p class="card-text centertext">Find out what current event is happening in the local community and pitch in to
+          join a fun and exciting local events.</p>
         <a href="cityeventlist.html" class="stretched-link"></a>
       </div>
     </div>
@@ -72,8 +88,14 @@
     <div class="card">
       <img class="card-img-bottom topimg" src="images/download.jpeg" alt="Card image cap">
       <div class="card-body">
+<<<<<<< HEAD
+        <h5 class="card-title centertext">Card title</h5>
+        <p class="card-text centertext">This is a wider card with supporting text below as a natural lead-in to
+          additional content. This content is a little bit longer.</p>
+=======
         <h5 class="card-title centertext">Recycle Calculator</h5>
         <p class="card-text centertext">Calculate how much money you can get by returning bottles.</p>
+>>>>>>> de5fbe377057170478e68534b050b9a440bc67cd
         <a href="facts.html" class="stretched-link"></a>
       </div>
     </div>
@@ -85,52 +107,50 @@
         <a href="locator.html" class="stretched-link"></a>
       </div>
     </div>
-    </div>
-<!-- Footer -->
-<footer class="navbar fixed-bottom" style="background-color: #4c4caf;">
-  <div class="container text-center">
-      <div class="footer-item">
-          <a href="cityeventlist.html">
-              <span class="material-icons">list</span>
-              <div class="footer-text">City Events</div>
-          </a>
-      </div>
-      <div class="footer-item">
-          <a href="eventlist.html">
-              <span class="material-icons">playlist_add</span>
-              <div class="footer-text">Personal Events</div>
-          </a>
-      </div>
-      <div class="footer-item">
-          <a href="main.html">
-              <span class="material-icons">home</span>
-              <div class="footer-text">Home</div>
-          </a>
-      </div>
-      <div class="footer-item">
-          <a href="facts.html">
-              <span class="material-icons">fact_check</span>
-              <div class="footer-text">Facts</div>
-          </a>
-      </div>
-      <div class="footer-item">
-          <a href="locator.html">
-              <span class="material-icons">location_on</span>
-              <div class="footer-text">Locator</div>
-          </a>
-      </div>
   </div>
-</footer>
+  <!-- Footer -->
+  <footer class="navbar fixed-bottom" style="background-color: #4c4caf;">
+    <div class="container text-center">
+      <div class="footer-item">
+        <a href="cityeventlist.html">
+          <span class="material-icons">list</span>
+          <div class="footer-text">City Events</div>
+        </a>
+      </div>
+      <div class="footer-item">
+        <a href="eventlist.html">
+          <span class="material-icons">playlist_add</span>
+          <div class="footer-text">Personal Events</div>
+        </a>
+      </div>
+      <div class="footer-item">
+        <a href="main.html">
+          <span class="material-icons">home</span>
+          <div class="footer-text">Home</div>
+        </a>
+      </div>
+      <div class="footer-item">
+        <a href="facts.html">
+          <span class="material-icons">fact_check</span>
+          <div class="footer-text">Facts</div>
+        </a>
+      </div>
+      <div class="footer-item">
+        <a href="locator.html">
+          <span class="material-icons">location_on</span>
+          <div class="footer-text">Locator</div>
+        </a>
+      </div>
+    </div>
+  </footer>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/profile.js"></script>
-    <script src="./scripts/firebaseAPI_TEAM25.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+  <!-- Link to scripts of your own -->
+  <script src="/scripts/main.js"></script>
+  <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 
