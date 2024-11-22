@@ -28,6 +28,17 @@ body {
     border-radius: 8px;
 }
 
+.btn-danger{
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #f31414;
+    border: 1px solid #c0c0c0;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    margin-top: 15px;
+    
+}
 /* Button styling */
 .btn {
     font-size: 18px;
@@ -40,9 +51,8 @@ body {
     margin-top: 15px;
 }
 
-.btn:hover {
-    background-color: #bcd9f5;
-}
+
+
 
 /* Footer Icon styling */
 footer .container a {

@@ -131,10 +131,16 @@ function checkisparticipate() {
             if (user) {
                 if (user.uid == eventDoc.data().eventOwner) {
                     document.getElementById("joinbutton").disabled = true;
+                    document.getElementById("deletebutton").classList.remove("hidden");
+                    document.getElementById("deletebutton").classList.add("btn-danger");
+                    document.getElementById("deletebutton").innerHTML = "Delete";
                     document.getElementById("joinbutton").innerHTML = "You are the Owner";
                 }
                 if (participants.includes(user.uid)) {
                     document.getElementById("joinbutton").disabled = true;
+                    document.getElementById("deletebutton").classList.remove("hidden");
+                    document.getElementById("deletebutton").classList.add("btn-warning");
+                    document.getElementById("deletebutton").innerHTML = "Quit";
                     document.getElementById("joinbutton").innerHTML = "Already Joined";
                 }
             } else {
