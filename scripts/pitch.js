@@ -65,14 +65,25 @@ function join() {
             // Check if the user is authenticated
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
-                    
+                    const contribution = eventDoc.data().contribution;
                     if (!participants.includes(user.uid)) {
                         participants.push(user.uid);
                         eventRef.update({
                             participant: participants
                         }).then(() => {
-                            console.log("User added to event participants");
-                            window.location.assign("eventlist.html");
+                            currentUser = db.collection("users").doc(user.uid)
+                            currentUser.get()
+                                .then(userDoc => {
+                                    let moneyAmount = userDoc.data().money;
+                                    let totala = parseFloat(moneyAmount) - parseFloat(contribution);
+                                    totala = totala.toFixed(2);
+                                    currentUser.update({
+                                        money: totala,
+                                    }).then(function () {
+                                        console.log("Money deducted to profile");
+                                        window.location.assign("eventlist.html");
+                                    })
+                                });
                         }).catch(error => {
                             console.error("Error updating participants:", error);
                         });
