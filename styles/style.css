@@ -76,15 +76,15 @@
 }
 .footer-item a:hover {
     background-color: rgba(100, 150, 100, 0.2);
-    color: rgb(50, 200, 50); 
+    color: yellow; 
 }
 
 .footer-item a:hover .material-icons {
-    color: rgb(50, 200, 50); 
+    color: yellow; 
 }
 
 .footer-item a:hover .footer-text {
-    color: rgb(50, 200, 50); 
+    color: yellow;
 }
 
 .navbar-icon {
@@ -156,27 +156,6 @@ button:hover {
    margin-left: auto;
    margin-right: auto;
 
-  }
-.container{
-    background: linear-gradient(to right, rgb(52, 232, 158), rgb(15, 52, 67));
-} 
-
-.first-color { 
-	background: #feffdf; 
-}
-	
-.second-color { 
-	background: #dde0ab; 
-}
-
-.third-color { 
-	background: #97cba9; 
-}
-
-.fourth-color { 
-	background: #668ba4; 
-}
-
 .p-5 mb-4 bg-light rounded-3 {
     background-color:#97cba9 ;
 }
@@ -188,8 +167,14 @@ button:hover {
 .container-fluid py-5 {
     background-color: #97cba9;
 }
+
+.container-fluid py-5 {
+    background-color: #f5f5dc;
 }
 
+.p-5 mb-4 bg-light rounded-3 {
+    background-color: #f5f5dc;
+}
 
 
     
