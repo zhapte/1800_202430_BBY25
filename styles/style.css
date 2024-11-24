@@ -161,6 +161,7 @@ button:hover {
    margin-right: auto;
   }
 
+<<<<<<< HEAD
   .form-group {
     font-family: Georgia, serif;
   }
@@ -169,3 +170,23 @@ button:hover {
     font-family: Georgia, serif;
   }
 
+=======
+<<<<<<< HEAD
+.display-5 fw-bold {
+    background-color: aquamarine;
+}
+
+
+
+.container-fluid py-5 {
+    background-color: #f5f5dc;
+}
+
+.p-5 mb-4 bg-light rounded-3 {
+    background-color: #f5f5dc;
+}
+
+}
+=======
+>>>>>>> b0d38cbe5e9e549bd0c6eec4a6756cfb769ec9c4
+>>>>>>> 7e289947e798ff4f5160b4c9854d6dad6b3d9687
