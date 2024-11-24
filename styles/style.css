@@ -159,7 +159,7 @@ button:hover {
    height:auto;
    margin-left: auto;
    margin-right: auto;
-
+  }
 .p-5 mb-4 bg-light rounded-3 {
     background-color:#97cba9 ;
 }
@@ -177,5 +177,9 @@ button:hover {
 .p-5 mb-4 bg-light rounded-3 {
     background-color: #f5f5dc;
 }
+<<<<<<< HEAD
 
 
+=======
+}
+>>>>>>> dfb50890fab3103e65111f7c4be24c7d3f7f593f
