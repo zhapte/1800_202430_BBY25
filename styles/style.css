@@ -155,7 +155,7 @@ button:hover {
    height:auto;
    margin-left: auto;
    margin-right: auto;
-
+  }
 .p-5 mb-4 bg-light rounded-3 {
     background-color:#97cba9 ;
 }
@@ -175,8 +175,4 @@ button:hover {
 .p-5 mb-4 bg-light rounded-3 {
     background-color: #f5f5dc;
 }
-
-
-    
-    
-
+}
