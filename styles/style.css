@@ -1,3 +1,7 @@
+body {
+    background-color: #f5f5dc;
+}
+
 .topimg {
     width: 100%;       /* Make images take up the full width of the parent container */
     height: auto;      /* Maintain aspect ratio */
@@ -164,9 +168,7 @@ button:hover {
     background-color: aquamarine;
 }
 
-.container-fluid py-5 {
-    background-color: #97cba9;
-}
+
 
 .container-fluid py-5 {
     background-color: #f5f5dc;
@@ -176,7 +178,4 @@ button:hover {
     background-color: #f5f5dc;
 }
 
-
-    
-    
 
