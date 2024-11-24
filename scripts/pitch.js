@@ -152,3 +152,24 @@ function checkisparticipate() {
 }
 checkisparticipate();
 
+function deleteorquit(){
+    const { docId, database } = getDocIdFromURL();
+    const eventRef = db.collection(database).doc(docId.trim());
+    eventRef.get().then(eventDoc => {
+        const participants = eventDoc.data().participant || [];
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                if(user.uid == eventDoc.data().eventOwner){
+                    console.log(1);
+                }
+                if(participants.includes(user.uid)){
+                    const index = participants.indexOf(user.uid);
+                    console.log(index);
+                    participants.splice(index,1);
+                    
+                }
+            }
+        })
+    })
+}
+

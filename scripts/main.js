@@ -1,6 +1,5 @@
-// Sample array of event names (replace this with your actual array)
-let eventNames = []; // This will hold the event names fetched from Firestore
-let currentIndex = 0; // Track the current index in the array
+let eventNames = [];
+let currentIndex = 0;
 
 function initializeButtons() {
     const display = document.getElementById("eventDisplay");
