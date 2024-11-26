@@ -152,14 +152,14 @@ function checkisparticipate() {
 }
 checkisparticipate();
 
-function deleteorquit(){
+function deleteorquit() {
     const { docId, database } = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
         const participants = eventDoc.data().participant || [];
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                if(user.uid == eventDoc.data().eventOwner){
+                if (user.uid == eventDoc.data().eventOwner) {
                     Swal.fire({
                         title: "Are you sure?",
                         text: "You won't be able to revert this!",
@@ -174,7 +174,7 @@ function deleteorquit(){
                                 .then(() => {
                                     Swal.fire({
                                         title: "Deleted!",
-                                        text: "Your file has been deleted.",
+                                        text: "Your Event has been deleted.",
                                         icon: "success"
                                     }).then(() => {
                                         window.location.assign("eventlist.html");
@@ -183,22 +183,34 @@ function deleteorquit(){
 
                         }
                     });
-                    
+
                 }
-                if(participants.includes(user.uid)){
+                if (participants.includes(user.uid)) {
                     const index = participants.indexOf(user.uid);
-                    participants.splice(index,1);
-                    eventRef.update({
-                        participant: participants
-                    }).then(function () {
-                        Swal.fire({
-                            title: "Left the Event",
-                            text: "You Left the Event",
-                            icon: "success"
-                        }).then(function () {
-                            location.reload();
-                        })
-                    })
+                    participants.splice(index, 1);
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You Will no longer be part of this event",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, Leave!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            eventRef.update({
+                                participant: participants
+                            }).then(() => {
+                                    Swal.fire({
+                                        title: "Left the Event",
+                                        text: "You Left the Event.",
+                                        icon: "success"
+                                    }).then(() => {
+                                        location.reload();
+                                    });
+                                })
+                        }
+                    });
                 }
             }
         })
