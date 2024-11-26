@@ -78,17 +78,18 @@ function saveUserInfo() {
     })
         .then(() => {
             console.log("Document successfully updated!");
+            document.getElementById('personalInfoFields').disabled = true;
+            var x = document.getElementsByClassName("infoinput");
+            for (var i = 0; i < x.length; i++) {
+                x[i].classList.add("hidden");
+            }
+            var y = document.getElementsByClassName("outputinfo");
+            for (var i = 0; i < y.length; i++) {
+                y[i].classList.remove("hidden");
+            }
+            populateUserInfo();
         })
-    document.getElementById('personalInfoFields').disabled = true;
-    var x = document.getElementsByClassName("infoinput");
-    for (var i = 0; i < x.length; i++) {
-        x[i].classList.add("hidden");
-    }
-    var y = document.getElementsByClassName("outputinfo");
-    for (var i = 0; i < y.length; i++) {
-        y[i].classList.remove("hidden");
-    }
-    populateUserInfo();
+    
 }
 
 function gonext() {
