@@ -10,7 +10,7 @@ function initializeButtons() {
     if (eventNames.length > 0) {
         display.innerText = eventNames[currentIndex];
     } else {
-        display.innerText = "You have not Joined any Events";
+        display.innerText = "You have not joined any events";
     }
 
     // Add click event for "Next" button
