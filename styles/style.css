@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to right, skyblue,#F5F5DC)
+    background-image: linear-gradient(to right, #11998e,#38ef7d);
 }
 
 .topimg {
@@ -80,15 +80,15 @@ body {
 }
 .footer-item a:hover {
     background-color: rgba(100, 150, 100, 0.2);
-    color: yellow; 
+    color: red;
 }
 
 .footer-item a:hover .material-icons {
-    color: yellow; 
+    color: red;
 }
 
 .footer-item a:hover .footer-text {
-    color: yellow;
+    color: red; 
 }
 
 .navbar-icon {
@@ -161,7 +161,10 @@ button:hover {
    margin-right: auto;
   }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 9125cf7ace6d4e7cdc410571ae1af44a3b9e8517
   .form-group {
     font-family: Georgia, serif;
   }
@@ -170,7 +173,10 @@ button:hover {
     font-family: Georgia, serif;
   }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 9125cf7ace6d4e7cdc410571ae1af44a3b9e8517
 .display-5 fw-bold {
     background-color: aquamarine;
 }
@@ -185,5 +191,10 @@ button:hover {
     background-color: #f5f5dc;
 }
 
+.navbar fixed-bottom {
+    background-color: forestgreen;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 9125cf7ace6d4e7cdc410571ae1af44a3b9e8517
