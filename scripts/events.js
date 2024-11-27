@@ -32,8 +32,6 @@ function loadEvents() {
             } else {
                 db.collection("customevents").doc(doc.id).delete()
                     .then(() => {
-                        console.log(`Deleted hike: ${doc.id}`);
-                        //refresh the page after deletion
                         location.reload();
                     })
             }

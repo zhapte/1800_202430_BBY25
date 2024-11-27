@@ -80,13 +80,23 @@ function join() {
                                     currentUser.update({
                                         money: totala,
                                     }).then(function () {
+                                        if(docId == "customevent"){
                                         Swal.fire({
                                             title: "Event Joined",
                                             text: "You Joined the Event",
                                             icon: "success"
                                         }).then(function () {
-                                            window.location.assign("eventlist.html");
+                                            location.reload();
                                         })
+                                    } else{
+                                        Swal.fire({
+                                            title: "Money Donated",
+                                            text: "You made the community better",
+                                            icon: "success"
+                                        }).then(function () {
+                                            location.reload();
+                                        })
+                                    }
                                     })
                                 });
                         }).catch(error => {
@@ -152,21 +162,65 @@ function checkisparticipate() {
 }
 checkisparticipate();
 
-function deleteorquit(){
+function deleteorquit() {
     const { docId, database } = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
         const participants = eventDoc.data().participant || [];
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                if(user.uid == eventDoc.data().eventOwner){
-                    console.log(1);
+                if (user.uid == eventDoc.data().eventOwner) {
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            db.collection(database).doc(docId).delete()
+                                .then(() => {
+                                    Swal.fire({
+                                        title: "Deleted!",
+                                        text: "Your Event has been deleted.",
+                                        icon: "success"
+                                    }).then(() => {
+                                        window.location.assign("eventlist.html");
+                                    });
+                                })
+
+                        }
+                    });
+
                 }
-                if(participants.includes(user.uid)){
+                if (participants.includes(user.uid)) {
                     const index = participants.indexOf(user.uid);
-                    console.log(index);
-                    participants.splice(index,1);
-                    
+                    participants.splice(index, 1);
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You Will no longer be part of this event",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, Leave!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            eventRef.update({
+                                participant: participants
+                            }).then(() => {
+                                    Swal.fire({
+                                        title: "Left the Event",
+                                        text: "You Left the Event.",
+                                        icon: "success"
+                                    }).then(() => {
+                                        location.reload();
+                                    });
+                                })
+                        }
+                    });
                 }
             }
         })
