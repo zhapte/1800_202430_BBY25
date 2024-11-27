@@ -58,6 +58,20 @@
     </div>
   </nav>
 
+
+
+  <h1>Bottle Recycling Calculator</h1>
+  <p>Enter the number of bottles you want to recycle:</p>
+  <input type="number" id="bottleCount" min="0" placeholder="0">
+  <button onclick="calculateTotal()">Calculate</button>
+
+
+  <p class="result" id="result"></p>
+  <button id="submit" class="hidden" onclick="addtoprofile()">Add to Profile</button>
+  <h3>Items you can return!</h3>
+
+  <ul id="itemList"></ul>
+
   <!-- Footer -->
   <footer class="navbar fixed-bottom" >
     <div class="container text-center">
@@ -94,18 +108,6 @@
     </div>
   </footer>
 
-
-  <h1>Bottle Recycling Calculator</h1>
-  <p>Enter the number of bottles you want to recycle:</p>
-  <input type="number" id="bottleCount" min="0" placeholder="0">
-  <button onclick="calculateTotal()">Calculate</button>
-
-
-  <p class="result" id="result"></p>
-  <button id="submit" class="hidden" onclick="addtoprofile()">Add to Profile</button>
-  <h3>Items you can return!</h3>
-
-  <ul id="itemList"></ul>
 
   <script src="scripts/facts.js"></script>
 
