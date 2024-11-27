@@ -161,7 +161,7 @@ button:hover {
    margin-right: auto;
   }
 
-<<<<<<< HEAD
+
   .form-group {
     font-family: Georgia, serif;
   }
@@ -171,7 +171,7 @@ button:hover {
   }
 
 =======
-<<<<<<< HEAD
+
 .display-5 fw-bold {
     background-color: aquamarine;
 }
@@ -186,7 +186,7 @@ button:hover {
     background-color: #f5f5dc;
 }
 
+.navbar fixed-bottom {
+    background-color: forestgreen;
 }
-=======
->>>>>>> b0d38cbe5e9e549bd0c6eec4a6756cfb769ec9c4
->>>>>>> 7e289947e798ff4f5160b4c9854d6dad6b3d9687
+
