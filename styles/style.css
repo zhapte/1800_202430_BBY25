@@ -80,27 +80,15 @@ body {
 }
 .footer-item a:hover {
     background-color: rgba(100, 150, 100, 0.2);
-<<<<<<< HEAD
-    color: rgb(0, 0, 0);
-}
-
-.footer-item a:hover .material-icons {
-    color: rgb(0, 0, 0);
-}
-
-.footer-item a:hover .footer-text {
-    color: rgb(17, 16, 16); 
-=======
     color: yellow;
 }
 
 .footer-item a:hover .material-icons {
-    color: orange;
+    color: yellow;
 }
 
 .footer-item a:hover .footer-text {
-    color:orange;
->>>>>>> d0d961495a69f7b1723d2fe9a89ce22c61059f5f
+    color:yellow;
 }
 
 .navbar-icon {
