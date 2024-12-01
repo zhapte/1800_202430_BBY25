@@ -80,15 +80,15 @@ body {
 }
 .footer-item a:hover {
     background-color: rgba(100, 150, 100, 0.2);
-    color: red;
+    color: yellow;
 }
 
 .footer-item a:hover .material-icons {
-    color: red;
+    color: orange;
 }
 
 .footer-item a:hover .footer-text {
-    color: red; 
+    color:orange;
 }
 
 .navbar-icon {
@@ -111,6 +111,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px; /* Space between buttons and event name */
+    height:100vh;
+    margin: 0;
 }
 
 #eventDisplay {
@@ -161,10 +163,7 @@ button:hover {
    margin-right: auto;
   }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9125cf7ace6d4e7cdc410571ae1af44a3b9e8517
   .form-group {
     font-family: Georgia, serif;
   }
@@ -173,10 +172,7 @@ button:hover {
     font-family: Georgia, serif;
   }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9125cf7ace6d4e7cdc410571ae1af44a3b9e8517
 .display-5 fw-bold {
     background-color: aquamarine;
 }
@@ -194,7 +190,12 @@ button:hover {
 .navbar fixed-bottom {
     background-color: forestgreen;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 9125cf7ace6d4e7cdc410571ae1af44a3b9e8517
+#firebaseui-auth-container {
+}
+.card-title centertext {
+    text-decoration: yellow;
+}
+
+
+}
