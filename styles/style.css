@@ -106,18 +106,7 @@ body {
 
 .footer-item a:hover .footer-text {
     color:yellow;
-=======
-    color: rgb(0, 0, 0);
-}
 
-.footer-item a:hover .material-icons {
-    color: rgb(0, 0, 0);
-}
-
-.footer-item a:hover .footer-text {
-    color: rgb(17, 16, 16); 
->>>>>>> 9ae69d1119c05721300397a2a27104abbdd04a03
-}
 
 .navbar-icon {
     color: white; /* Icon color */
