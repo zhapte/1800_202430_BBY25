@@ -10,7 +10,23 @@ body {
     place-self: center;
     text-align: center;
 }
+/* Remove unnecessary padding/margin for #container */
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Space between buttons and event name */
+    margin: 0;
 
+}
+  
+  /* Adjust event display alignment */
+  #eventDisplay {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
 .midimg {
     width: 100%;       /* Make images take up the full width of the parent container */
     height: auto;      /* Maintain aspect ratio */
@@ -80,7 +96,6 @@ body {
 }
 .footer-item a:hover {
     background-color: rgba(100, 150, 100, 0.2);
-<<<<<<< HEAD
     color: rgb(0, 0, 0);
 }
 
@@ -90,17 +105,6 @@ body {
 
 .footer-item a:hover .footer-text {
     color: rgb(17, 16, 16); 
-=======
-    color: yellow;
-}
-
-.footer-item a:hover .material-icons {
-    color: orange;
-}
-
-.footer-item a:hover .footer-text {
-    color:orange;
->>>>>>> d0d961495a69f7b1723d2fe9a89ce22c61059f5f
 }
 
 .navbar-icon {
@@ -123,7 +127,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px; /* Space between buttons and event name */
-    height:100vh;
+    
     margin: 0;
 }
 
@@ -203,7 +207,6 @@ button:hover {
     background-color: forestgreen;
 }
 
-<<<<<<< HEAD
 #firebaseui-auth-container {
 }
 .card-title centertext {
@@ -211,6 +214,4 @@ button:hover {
 }
 
 
-=======
->>>>>>> e1ae3c493a9c382aad22764bf91be392d2676b43
 }
