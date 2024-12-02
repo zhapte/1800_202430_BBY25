@@ -186,6 +186,7 @@ button:hover {
 
   .container {
     font-family: Georgia, serif;
+    margin-top:0;
   }
 
 
@@ -206,7 +207,7 @@ button:hover {
 
 
 .card-title centertext {
-    text-decoration: yellow;
+    text-decoration: rgb(255, 255, 255);
 }
 
 #mainpagenav{
