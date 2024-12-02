@@ -148,7 +148,7 @@ button {
 }
 
 button:hover {
-    background: #ddd;
+    background: #dddddd;
 }
 
 @media (max-width: 768px) {
@@ -203,9 +203,6 @@ button:hover {
     background-color: #f5f5dc;
 }
 
-.navbar fixed-bottom {
-    background-color: forestgreen;
-}
 
 
 .card-title centertext {
