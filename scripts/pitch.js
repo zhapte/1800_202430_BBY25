@@ -80,23 +80,23 @@ function join() {
                                     currentUser.update({
                                         money: totala,
                                     }).then(function () {
-                                        if(docId == "customevent"){
-                                        Swal.fire({
-                                            title: "Event Joined",
-                                            text: "You Joined the Event",
-                                            icon: "success"
-                                        }).then(function () {
-                                            location.reload();
-                                        })
-                                    } else{
-                                        Swal.fire({
-                                            title: "Money Donated",
-                                            text: "You made the community better",
-                                            icon: "success"
-                                        }).then(function () {
-                                            location.reload();
-                                        })
-                                    }
+                                        if (database == "customevents") {
+                                            Swal.fire({
+                                                title: "Event Joined",
+                                                text: "You Joined the Event",
+                                                icon: "success"
+                                            }).then(function () {
+                                                location.reload();
+                                            })
+                                        } else {
+                                            Swal.fire({
+                                                title: "Money Donated",
+                                                text: "You made the community better",
+                                                icon: "success"
+                                            }).then(function () {
+                                                location.reload();
+                                            })
+                                        }
                                     })
                                 });
                         }).catch(error => {
