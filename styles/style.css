@@ -100,7 +100,7 @@ body {
 }
 
 .footer-item a:hover .material-icons {
-    color: yellow;
+    color: rgb(0, 0, 0);
 }
 
 .footer-item a:hover .footer-text {
