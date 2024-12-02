@@ -209,5 +209,11 @@ button:hover {
     text-decoration: yellow;
 }
 
+#mainpagenav{
+    padding-bottom: 65px;
+}
 
+#logomain{
+    padding-left:auto;
+}
 }
