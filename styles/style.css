@@ -96,17 +96,17 @@ body {
 }
 .footer-item a:hover {
     background-color: rgba(100, 150, 100, 0.2);
-<<<<<<< HEAD
+
     color: yellow;
 }
 
 .footer-item a:hover .material-icons {
-    color: yellow;
+    color: rgb(0, 0, 0);
 }
 
 .footer-item a:hover .footer-text {
-    color:yellow;
-
+    color: rgb(17, 16, 16); 
+}
 
 .navbar-icon {
     color: white; /* Icon color */
@@ -216,3 +216,5 @@ button:hover {
 
 
 }
+
+
