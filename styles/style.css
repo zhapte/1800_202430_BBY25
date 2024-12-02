@@ -96,10 +96,6 @@ body {
 }
 .footer-item a:hover {
     background-color: rgba(100, 150, 100, 0.2);
-<<<<<<< HEAD
-
-=======
->>>>>>> 42bcb47b28c95a9a5d2f507372b3f3eb11b4f675
     color: yellow;
 }
 
@@ -108,11 +104,7 @@ body {
 }
 
 .footer-item a:hover .footer-text {
-<<<<<<< HEAD
-    color: rgb(17, 16, 16); 
-=======
     color:yellow;
->>>>>>> 42bcb47b28c95a9a5d2f507372b3f3eb11b4f675
 }
 
 .navbar-icon {
@@ -221,13 +213,7 @@ button:hover {
     padding-bottom: 65px;
 }
 
-<<<<<<< HEAD
-}
-
-
-=======
 #logomain{
     padding-left:auto;
 }
 }
->>>>>>> 42bcb47b28c95a9a5d2f507372b3f3eb11b4f675
