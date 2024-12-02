@@ -43,34 +43,42 @@
   <!-- Header -->
    <!-- Image and text -->
 <!-- Image and text -->
-<nav class="navbar navbar-light">
-  <a class="navbar-brand" href="#">
-    <img src="images/ss logo.png" width="70" height="70" class="d-inline-block align-top" alt="">
-  </a>
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <!-- Back Button -->
+    <a href="#" class="navbar-icon">
+      <img src="images/ss logo.png" width="60" height="65" style="border-radius: 50%; border-color: black; border:3.5px solid;" class="d-inline-block align-top" alt="Ecogether">
+    </a>
+    <!-- Brand Name -->
+    <a class="navbar-brand" href="#">Ecogether</a>
+    <!-- Profile Icon -->
+    <form class="d-flex" role="Profile" style="color: #000;">
+      <a href="profile.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+              style="color: #000;" class="bi bi-person" viewBox="0 0 16 16">
+              <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+          </svg>
+      </a>
+      </form>
+  </div>
 </nav>
 
   
-  <div id="container" style="margin-bottom:5%; font-family: serif, Garamond;font-size:24px;">
+  <div id="container" style="margin-top:3%; font-family: serif, Garamond;font-size:24px;">
     <button id="prevButton">Previous</button>
     <div id="eventDisplay">Loading...</div>
     <button id="nextButton">Next</button>
   </div>
 
- 
-
-  </div>
-
   <div class="acard">
     <div class="card mb-3" style="background-color: black;">
-      <img class="card-img-top topimg" src="images/comm_events.png" style="border: 25px dotted; border-color:black" alt="Card image cap">
-
-
-  
-  
-
+      <img class="card-img-top topimg" src="images/comm_events.png" style="border: 25px dotted; border-color:black"
+        alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title centertext" style="color:yellow">Community Fund Raiser</h5>
-        <p class="card-text centertext" style="color:aqua">Explore opportunities to make a difference in your neighborhood. Find fundraisers that support meaningful causes and 
+        <p class="card-text centertext" style="color:aqua">Explore opportunities to make a difference in your
+          neighborhood. Find fundraisers that support meaningful causes and
           bring positive change to your local community.</p>
         <a href="cityeventlist.html" class="stretched-link"></a>
       </div>
@@ -78,11 +86,8 @@
 
 
     <div class="card mb-3" style="background-color: black;">
-      <img class="card-img-top topimg" src="images/personal_events.png" style="border: 25px dotted; border-color:black" alt="Card image cap">
-
-
-    
-
+      <img class="card-img-top topimg" src="images/personal_events.png" style="border: 25px dotted; border-color:black"
+        alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title centertext" style="color:yellow">Personal Events</h5>
         <p class="card-text centertext" style="color:aqua">Add your personal events.</p>
@@ -92,34 +97,30 @@
 
 
     <div class="card mb-3" style="background-color: black;">
-      <img class="card-img-bottom topimg" src="images/download.jpeg" style="border: 25px dotted; border-color:black" alt="Card image cap">
-
-
-    
-
+      <img class="card-img-bottom topimg" src="images/download.jpeg" style="border: 25px dotted; border-color:black"
+        alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title centertext" style="color:yellow">Recycle Calculator</h5>
-        <p class="card-text centertext" style="color:aqua">Calculate how much money you can get by returning bottles.</p>
+        <p class="card-text centertext" style="color:aqua">Calculate how much money you can get by returning bottles.
+        </p>
         <a href="facts.html" class="stretched-link"></a>
       </div>
     </div>
 
 
     <div class="card mb-3" style="background-color: black;">
-      <img class="card-img-bottom topimg" src="images/depot.png" style="border: 25px dotted; border-color:black" alt="Card image cap">
-
-
-   
+      <img class="card-img-bottom topimg" src="images/depot.png" style="border: 25px dotted; border-color:black"
+        alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title centertext" style="color:yellow">Recycle depot Locator </h5>
         <p class="card-text centertext" style="color:aqua">Find the nearest recycle depot now!</p>
         <a href="locator.html" class="stretched-link"></a>
       </div>
     </div>
-</div>
+  </div>
 
   <!-- Footer -->
-  <footer class="navbar fixed-bottom" style="background-color:blue;" >
+  <footer class="navbar fixed-bottom" style="background-color:blue;">
     <div class="container text-center">
       <div class="footer-item">
         <a href="cityeventlist.html">

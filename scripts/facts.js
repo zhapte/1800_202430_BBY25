@@ -4,7 +4,7 @@ function calculateTotal() {
     // code wrote by Pari
     const bottleCountInput = document.getElementById("bottleCount").value;
     // Ensure the input is a valid number
-    bottleCount = parseInt(bottleCountInput, 10);
+    bottleCount = parseInt(bottleCountInput);
     if (isNaN(bottleCount) || bottleCount < 0) {
         document.getElementById("result").innerText = "Please enter a valid number of bottles.";
         return;
