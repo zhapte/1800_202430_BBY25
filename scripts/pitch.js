@@ -1,18 +1,22 @@
 function getDocIdFromURL() {
+    //listen from the previous page for the database and the event id
+    //correct database collection and event id gets passed
     const urlParams = new URLSearchParams(window.location.search);
     const database = urlParams.get("database");
     const docId = urlParams.get("docId");
+    //event id and database collection based on whichpage was directed from
     return { docId, database };
 }
 
 // Display event information based on docId
 function displayeventinfo() {
+    // get the database collection and database
     const { docId, database } = getDocIdFromURL();
     if (!docId) {
         console.error("No document ID found in URL");
         return;
     }
-
+    //go into th right database for the event for the information to display
     const eventRef = db.collection(database).doc(docId);
     eventRef.get().then(eventdoc => {
         if (eventdoc.exists) {
@@ -50,6 +54,7 @@ displayeventinfo();
 
 
 function join() {
+    //get the information of the database collection and event id
     const { docId, database } = getDocIdFromURL();
     if (!docId) {
         console.error("No document ID found in URL");
@@ -68,18 +73,21 @@ function join() {
                     const contribution = eventDoc.data().contribution;
                     if (!participants.includes(user.uid)) {
                         participants.push(user.uid);
+                        //push the user id into the parcipants array
                         eventRef.update({
                             participant: participants
                         }).then(() => {
                             currentUser = db.collection("users").doc(user.uid)
                             currentUser.get()
                                 .then(userDoc => {
+                                    //update the money in the user profile to reflect the event is joined.
                                     let moneyAmount = userDoc.data().money;
                                     let totala = parseFloat(moneyAmount) - parseFloat(contribution);
                                     totala = totala.toFixed(2);
                                     currentUser.update({
                                         money: totala,
                                     }).then(function () {
+                                        //swwet alert to display based on which
                                         if (database == "customevents") {
                                             Swal.fire({
                                                 title: "Event Joined",
@@ -113,15 +121,19 @@ function join() {
     });
 }
 
+//function to check if the event is full with allthe participant
 function checksize() {
     const { docId, database } = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
+        //get the array of partcipant
         const participants = eventDoc.data().participant || [];
         var currentpart = parseInt(participants.length);
+        //subtract 1 from the groupize since the owner would be considered a participant
         var size = parseInt(eventDoc.data().groupSize) - 1;
 
         if (currentpart >= size) {
+            //disable if the event is full
             currentpart += 1;
             document.getElementById("joinbutton").disabled = true;
             document.getElementById("eventsize").innerText = "Group Size: " + currentpart + "/" + (eventDoc.data().groupSize || "N/A") + " Already Full.";
@@ -131,6 +143,7 @@ function checksize() {
 checksize();
 
 function checkisparticipate() {
+    //get the database collection and event id
     const { docId, database } = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
@@ -140,6 +153,7 @@ function checkisparticipate() {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 if (user.uid == eventDoc.data().eventOwner) {
+                    //check if the current user is th owner then change the button text
                     document.getElementById("joinbutton").disabled = true;
                     document.getElementById("deletebutton").classList.remove("hidden");
                     document.getElementById("deletebutton").classList.add("btn-danger");
@@ -147,6 +161,8 @@ function checkisparticipate() {
                     document.getElementById("joinbutton").innerHTML = "You are the Owner";
                 }
                 if (participants.includes(user.uid)) {
+                    //check if the current user is a participant of the event then change the button tex
+                    
                     document.getElementById("joinbutton").disabled = true;
                     document.getElementById("deletebutton").classList.remove("hidden");
                     document.getElementById("deletebutton").classList.add("btn-warning");
@@ -163,13 +179,16 @@ function checkisparticipate() {
 checkisparticipate();
 
 function deleteorquit() {
+    //get the event id and database collection
     const { docId, database } = getDocIdFromURL();
     const eventRef = db.collection(database).doc(docId.trim());
     eventRef.get().then(eventDoc => {
+        //get the participant array in the event record
         const participants = eventDoc.data().participant || [];
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 if (user.uid == eventDoc.data().eventOwner) {
+                    //sweet alert to ask user confirmation
                     Swal.fire({
                         title: "Are you sure?",
                         text: "You won't be able to revert this!",
@@ -180,6 +199,7 @@ function deleteorquit() {
                         confirmButtonText: "Yes, delete it!"
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            //delete the event if the action is performed by the event owner.
                             db.collection(database).doc(docId).delete()
                                 .then(() => {
                                     Swal.fire({
@@ -187,6 +207,7 @@ function deleteorquit() {
                                         text: "Your Event has been deleted.",
                                         icon: "success"
                                     }).then(() => {
+                                        //since event no longer exists go back to the eventlist 
                                         window.location.assign("eventlist.html");
                                     });
                                 })
@@ -196,8 +217,11 @@ function deleteorquit() {
 
                 }
                 if (participants.includes(user.uid)) {
+                    //get the index of the user in the participant
                     const index = participants.indexOf(user.uid);
+                    //remove the participant from the participant array
                     participants.splice(index, 1);
+                    //sweet alert to ask user for confirmation
                     Swal.fire({
                         title: "Are you sure?",
                         text: "You Will no longer be part of this event",
@@ -207,6 +231,7 @@ function deleteorquit() {
                         cancelButtonColor: "#d33",
                         confirmButtonText: "Yes, Leave!"
                     }).then((result) => {
+                        //update the participant in to database
                         if (result.isConfirmed) {
                             eventRef.update({
                                 participant: participants
@@ -216,6 +241,7 @@ function deleteorquit() {
                                         text: "You Left the Event.",
                                         icon: "success"
                                     }).then(() => {
+                                        //reload the page
                                         location.reload();
                                     });
                                 })
