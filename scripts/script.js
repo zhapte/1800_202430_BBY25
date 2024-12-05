@@ -2,7 +2,9 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 let currentMonth = 9; // October
 let currentYear = 2024;
-
+//function ended up not used in the app but originall it would be used for a dynamically populated calender
+//the main function to display the calender.
+//the code was mainly done through the help with chaptgpt.
 function updateCalendar() {
     document.getElementById("month-year").innerText = `${monthNames[currentMonth]} ${currentYear}`;
 

@@ -1,4 +1,4 @@
-
+//prototype to display the recycle depot locator in the database.
 function displayCards() {
     const container = document.getElementById("cardContainer"); // Your container for cards
 

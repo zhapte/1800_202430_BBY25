@@ -29,7 +29,7 @@ function loadEvents() {
                 //adde event listener tothe rows so that when it is clicked it will be passed to the detail page.
                 window.location.href = `events.html?docId=${doc.id}&database=cityevents`;
             });
-
+            //row aaded to the table.
             eventTableBody.appendChild(row);
         });
     }).catch((error) => {

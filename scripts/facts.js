@@ -52,6 +52,7 @@ function addtoprofile() {
     });
 }
 
+//function to display cards on the page so that information is get through database rather than hard coding on the page.
 function loadItems() {
     const itemList = document.getElementById("itemList");
     itemList.innerHTML = "";

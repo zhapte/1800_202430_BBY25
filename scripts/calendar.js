@@ -1,3 +1,5 @@
+//code was supposed to be used for a dynamically populated calender ended up not using.
+
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 let currentMonth = 9; // October

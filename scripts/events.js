@@ -5,8 +5,10 @@ function loadEvents() {
     db.collection("customevents").get().then((snapshot) => {
         snapshot.forEach((doc) => {
             const event = doc.data();
+            //create a date object for the event date so the it can be used to check if the date hae not happend.
             const edate = new Date(event.date);
             // Create a new row
+            //check if date of the event have not passed yet.
             edate.setDate(edate.getDate() + 1);
             if (edate >= new Date()) {
                 // Create a new row
@@ -25,11 +27,13 @@ function loadEvents() {
                 `;
 
                 row.addEventListener("click", () => {
+                    //event listener added so that when row is clicked then it  gets passed to the detail page.
                     window.location.href = `events.html?docId=${doc.id}&database=customevents`;
                 });
 
                 eventTableBody.appendChild(row);
             } else {
+                //if the event have already passed then delete the event from the datagase.
                 db.collection("customevents").doc(doc.id).delete()
                     .then(() => {
                         location.reload();
@@ -40,6 +44,7 @@ function loadEvents() {
         console.error("Error fetching events: ", error);
     });
 }
+//call the function to load the event when the page loads.
 loadEvents();
 
 function goBack() {
